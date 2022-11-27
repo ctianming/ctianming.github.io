@@ -1,0 +1,36 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Hola",
+    "subtitle": "",
+    "icon": "http://example.com/images/favicon.ico",
+    "description": "",
+    "home_page_url": "http://example.com",
+    "items": [
+        {
+            "id": "http://example.com/2022/11/16/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/",
+            "url": "http://example.com/2022/11/16/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/",
+            "title": "比特币的交易过程，结合UTXO和秘钥技术的说明",
+            "date_published": "2022-11-16T15:42:41.000Z",
+            "content_html": "<ul>\n<li><mark>首先我们尝试分开理解 UTXO 与秘钥技术</mark></li>\n</ul>\n<h2 id=\"什么是utxo\"><a class=\"anchor\" href=\"#什么是utxo\">#</a> 什么是 UTXO</h2>\n<blockquote>\n<p>UTXO，全称 Unspent Transaction Output，直译即<strong>未花费交易输出</strong>。<br />\n每笔比特币交易都有输入和输出，别人付给你的钱是 “交易输入”，你收到的钱是 “交易输出”。只不过当你没支付出去之前是 “未花费的交易输出”，一旦你支付出去，就变成了真正的 “交易输出”。</p>\n<p>UTXO 简单理解就是：取代了传统账户，用来快速计算你有多少数字资产余额的一种设计。</p>\n<p>UTXO 的方案简单到极致：只确认交易本身，具有极大的优越性：</p>\n<ol>\n<li>\n<p>UTXO 不能分割，只能被消耗，独立的数据结构大大减少了计算量；</p>\n</li>\n<li>\n<p>UTXO 配合地址使用，具备天然的匿名性，保证了账户的安全；</p>\n</li>\n<li>\n<p>因为地址的存在，UTXO 的销毁和产生，都可追溯，很难伪造；</p>\n</li>\n</ol>\n<p>它是比特币世界里的<strong>抽象货币</strong>，每个 UTXO 都被一个公钥（钱包地址）锁定，只有持有该公钥对应私钥的人，可以通过私钥签名（解锁）并使用该 UTXO。可以把 UTXO 理解为抽象的纸币，但它的面值<strong>不是固定的</strong>（不光有 5 块，10 块，可以是任何数）。</p>\n</blockquote>\n<hr />\n<h2 id=\"比特币中的秘钥技术\"><a class=\"anchor\" href=\"#比特币中的秘钥技术\">#</a> 比特币中的秘钥技术</h2>\n<blockquote>\n<h3 id=\"非对称秘钥密码体制\"><a class=\"anchor\" href=\"#非对称秘钥密码体制\">#</a> <em><strong>非对称秘钥密码体制</strong></em></h3>\n<p>比特币使用<em><strong>非对称密钥密码体制</strong></em>，也称为公开密钥加密，英文名称为 Public-key cryptography，是密码学中的一种算法。它需要两个密钥，一个是<strong>公开密钥</strong>，一个是<strong>私钥密钥</strong>。虽然两者在数学上相关，但是如果知道了其中一个，并不能凭此计算出另一个。因此，其中一个可以公开，称为公钥，任意向外发布；不公开的密钥，称为私钥，必须有用户自行严格秘密保管，绝不能通过任何途径提供给他人。</p>\n<h3 id=\"数字签名\"><a class=\"anchor\" href=\"#数字签名\">#</a> <em><strong>数字签名</strong></em></h3>\n<p>数字签名是<em><strong>非对称密钥加密技术</strong></em>和<em><strong>数字摘要技术</strong></em>的应用。简单来讲，数字签名就是将公开密钥加密反过来用。签名者将消息用私钥来加密（这是一种反用，因为通常公钥密码中的私钥用来解密），然后公布公钥；验证者是引用公钥将加密消息解密并对比消息。因此，可靠的非对称密钥加密算法均能构建出可靠的数字签名。</p>\n<h3 id=\"哈希算法\"><a class=\"anchor\" href=\"#哈希算法\">#</a> <em><strong>哈希算法</strong></em></h3>\n<p>哈希算法：也叫散列函数，可以通过它将数据量较大的消息或者数据计算出一个格式固定，数据量较小的数字摘要，也叫指纹，散列值，或者哈希。好的哈希算法应该是<strong>不可逆的</strong>（无法通过数字摘要反推出原来的信息或者数据），<strong>敏感的</strong>（原来数据中任何一个微小的改动，都会使数字摘要发生巨大变化），<strong>防冲突的</strong>（很难找到两个不同的信息，它们的数字摘要相同）。</p>\n</blockquote>\n<ul>\n<li><mark>接下来以此分析比特币的交易过程</mark></li>\n</ul>\n",
+            "tags": [
+                "学习笔记"
+            ]
+        },
+        {
+            "id": "http://example.com/2022/11/16/note/",
+            "url": "http://example.com/2022/11/16/note/",
+            "title": "My New Post",
+            "date_published": "2022-11-16T13:49:20.000Z",
+            "content_html": "",
+            "tags": []
+        },
+        {
+            "id": "http://example.com/2022/11/16/hello-world/",
+            "url": "http://example.com/2022/11/16/hello-world/",
+            "title": "Hello World",
+            "date_published": "2022-11-16T13:21:50.897Z",
+            "content_html": "<p>Welcome to <span class=\"exturl\" data-url=\"aHR0cHM6Ly9oZXhvLmlvLw==\">Hexo</span>! This is your very first post. Check <span class=\"exturl\" data-url=\"aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv\">documentation</span> for more info. If you get any problems when using Hexo, you can find the answer in <span class=\"exturl\" data-url=\"aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=\">troubleshooting</span> or you can ask me on <span class=\"exturl\" data-url=\"aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==\">GitHub</span>.</p>\n<h2 id=\"quick-start\"><a class=\"anchor\" href=\"#quick-start\">#</a> Quick Start</h2>\n<h3 id=\"create-a-new-post\"><a class=\"anchor\" href=\"#create-a-new-post\">#</a> Create a new post</h3>\n<figure class=\"highlight bash\"><figcaption data-lang=\"bash\"><span>h</span></figcaption><table><tr><td data-num=\"1\"></td><td><pre>$ hexo new <span class=\"token string\">\"My New Post\"</span></pre></td></tr></table></figure><p>More info: <span class=\"exturl\" data-url=\"aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s\">Writing</span></p>\n<h3 id=\"run-server\"><a class=\"anchor\" href=\"#run-server\">#</a> Run server</h3>\n<figure class=\"highlight bash\"><figcaption data-lang=\"bash\"><span>h</span></figcaption><table><tr><td data-num=\"1\"></td><td><pre>$ hexo server</pre></td></tr></table></figure><p>More info: <span class=\"exturl\" data-url=\"aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=\">Server</span></p>\n<h3 id=\"generate-static-files\"><a class=\"anchor\" href=\"#generate-static-files\">#</a> Generate static files</h3>\n<figure class=\"highlight bash\"><figcaption data-lang=\"bash\"><span>h</span></figcaption><table><tr><td data-num=\"1\"></td><td><pre>$ hexo generate</pre></td></tr></table></figure><p>More info: <span class=\"exturl\" data-url=\"aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s\">Generating</span></p>\n<h3 id=\"deploy-to-remote-sites\"><a class=\"anchor\" href=\"#deploy-to-remote-sites\">#</a> Deploy to remote sites</h3>\n<figure class=\"highlight bash\"><figcaption data-lang=\"bash\"><span>h</span></figcaption><table><tr><td data-num=\"1\"></td><td><pre>$ hexo deploy</pre></td></tr></table></figure><p>More info: <span class=\"exturl\" data-url=\"aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s\">Deployment</span></p>\n",
+            "tags": []
+        }
+    ]
+}

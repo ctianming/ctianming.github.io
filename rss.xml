@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Hola</title>
+        <subtitle></subtitle>
+        <icon>http://example.com/images/favicon.ico</icon>
+        <link>http://example.com</link>
+        <author>
+          <name>Clearsky</name>
+        </author>
+        <description></description>
+        <language>en</language>
+        <pubDate>Wed, 16 Nov 2022 23:42:41 +0800</pubDate>
+        <lastBuildDate>Wed, 16 Nov 2022 23:42:41 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">http://example.com/2022/11/16/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/</guid>
+            <title>比特币的交易过程，结合UTXO和秘钥技术的说明</title>
+            <link>http://example.com/2022/11/16/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/</link>
+            <category term="学习笔记" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+            <pubDate>Wed, 16 Nov 2022 23:42:41 +0800</pubDate>
+            <description><![CDATA[ &lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;首先我们尝试分开理解 UTXO 与秘钥技术&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;什么是utxo&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#什么是utxo&#34;&gt;#&lt;/a&gt; 什么是 UTXO&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;UTXO，全称 Unspent Transaction Output，直译即&lt;strong&gt;未花费交易输出&lt;/strong&gt;。&lt;br /&gt;
+每笔比特币交易都有输入和输出，别人付给你的钱是 “交易输入”，你收到的钱是 “交易输出”。只不过当你没支付出去之前是 “未花费的交易输出”，一旦你支付出去，就变成了真正的 “交易输出”。&lt;/p&gt;
+&lt;p&gt;UTXO 简单理解就是：取代了传统账户，用来快速计算你有多少数字资产余额的一种设计。&lt;/p&gt;
+&lt;p&gt;UTXO 的方案简单到极致：只确认交易本身，具有极大的优越性：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;UTXO 不能分割，只能被消耗，独立的数据结构大大减少了计算量；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UTXO 配合地址使用，具备天然的匿名性，保证了账户的安全；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;因为地址的存在，UTXO 的销毁和产生，都可追溯，很难伪造；&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;它是比特币世界里的&lt;strong&gt;抽象货币&lt;/strong&gt;，每个 UTXO 都被一个公钥（钱包地址）锁定，只有持有该公钥对应私钥的人，可以通过私钥签名（解锁）并使用该 UTXO。可以把 UTXO 理解为抽象的纸币，但它的面值&lt;strong&gt;不是固定的&lt;/strong&gt;（不光有 5 块，10 块，可以是任何数）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;比特币中的秘钥技术&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#比特币中的秘钥技术&#34;&gt;#&lt;/a&gt; 比特币中的秘钥技术&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;h3 id=&#34;非对称秘钥密码体制&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#非对称秘钥密码体制&#34;&gt;#&lt;/a&gt; &lt;em&gt;&lt;strong&gt;非对称秘钥密码体制&lt;/strong&gt;&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;比特币使用&lt;em&gt;&lt;strong&gt;非对称密钥密码体制&lt;/strong&gt;&lt;/em&gt;，也称为公开密钥加密，英文名称为 Public-key cryptography，是密码学中的一种算法。它需要两个密钥，一个是&lt;strong&gt;公开密钥&lt;/strong&gt;，一个是&lt;strong&gt;私钥密钥&lt;/strong&gt;。虽然两者在数学上相关，但是如果知道了其中一个，并不能凭此计算出另一个。因此，其中一个可以公开，称为公钥，任意向外发布；不公开的密钥，称为私钥，必须有用户自行严格秘密保管，绝不能通过任何途径提供给他人。&lt;/p&gt;
+&lt;h3 id=&#34;数字签名&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#数字签名&#34;&gt;#&lt;/a&gt; &lt;em&gt;&lt;strong&gt;数字签名&lt;/strong&gt;&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;数字签名是&lt;em&gt;&lt;strong&gt;非对称密钥加密技术&lt;/strong&gt;&lt;/em&gt;和&lt;em&gt;&lt;strong&gt;数字摘要技术&lt;/strong&gt;&lt;/em&gt;的应用。简单来讲，数字签名就是将公开密钥加密反过来用。签名者将消息用私钥来加密（这是一种反用，因为通常公钥密码中的私钥用来解密），然后公布公钥；验证者是引用公钥将加密消息解密并对比消息。因此，可靠的非对称密钥加密算法均能构建出可靠的数字签名。&lt;/p&gt;
+&lt;h3 id=&#34;哈希算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#哈希算法&#34;&gt;#&lt;/a&gt; &lt;em&gt;&lt;strong&gt;哈希算法&lt;/strong&gt;&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;哈希算法：也叫散列函数，可以通过它将数据量较大的消息或者数据计算出一个格式固定，数据量较小的数字摘要，也叫指纹，散列值，或者哈希。好的哈希算法应该是&lt;strong&gt;不可逆的&lt;/strong&gt;（无法通过数字摘要反推出原来的信息或者数据），&lt;strong&gt;敏感的&lt;/strong&gt;（原来数据中任何一个微小的改动，都会使数字摘要发生巨大变化），&lt;strong&gt;防冲突的&lt;/strong&gt;（很难找到两个不同的信息，它们的数字摘要相同）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;接下来以此分析比特币的交易过程&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2022/11/16/note/</guid>
+            <title>My New Post</title>
+            <link>http://example.com/2022/11/16/note/</link>
+            <pubDate>Wed, 16 Nov 2022 21:49:20 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2022/11/16/hello-world/</guid>
+            <title>Hello World</title>
+            <link>http://example.com/2022/11/16/hello-world/</link>
+            <pubDate>Wed, 16 Nov 2022 21:21:50 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
+&lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo new &lt;span class=&#34;token string&#34;&gt;&#34;My New Post&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s&#34;&gt;Writing&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;run-server&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#run-server&#34;&gt;#&lt;/a&gt; Run server&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo server&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=&#34;&gt;Server&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;generate-static-files&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#generate-static-files&#34;&gt;#&lt;/a&gt; Generate static files&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo generate&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s&#34;&gt;Generating&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;deploy-to-remote-sites&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#deploy-to-remote-sites&#34;&gt;#&lt;/a&gt; Deploy to remote sites&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo deploy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
