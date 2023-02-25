@@ -10,8 +10,52 @@
         </author>
         <description></description>
         <language>en</language>
-        <pubDate>Sun, 27 Nov 2022 00:00:00 +0800</pubDate>
-        <lastBuildDate>Sun, 27 Nov 2022 00:00:00 +0800</lastBuildDate>
+        <pubDate>Sat, 25 Feb 2023 20:04:01 +0800</pubDate>
+        <lastBuildDate>Sat, 25 Feb 2023 20:04:01 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/02/25/Ethernaut%E9%A2%98%E8%A7%A3/</guid>
+            <title>Ethernaut题解</title>
+            <link>http://example.com/2023/02/25/Ethernaut%E9%A2%98%E8%A7%A3/</link>
+            <pubDate>Sat, 25 Feb 2023 20:04:01 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;ethernaut部分题解&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ethernaut部分题解&#34;&gt;#&lt;/a&gt; Ethernaut 部分题解&lt;/h1&gt;
+&lt;h2 id=&#34;recovery&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#recovery&#34;&gt;#&lt;/a&gt; &lt;em&gt;Recovery&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://github.com/ctianming/pictures/blob/main/md%E5%9B%BE%E7%89%87/Recovery%201.png&#34; alt=&#34;Recovery&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;如上图，题目要求找回存储在已丢失地址的以太币，除了题目所说的通过计算得到地址，我们还可以直接通过区块链浏览器获得&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://github.com/ctianming/pictures/blob/main/get%20Address.png&#34; alt=&#34;getAddress&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;如图所示的地址就是存储以太币的地址&lt;br /&gt;
+接下来只需将以太币从该地址中再提出来即可&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://github.com/ctianming/pictures/blob/main/submit%20instance.png&#34; alt=&#34;submitInstance&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;完成题目&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;naught-coin&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#naught-coin&#34;&gt;#&lt;/a&gt; &lt;em&gt;Naught coin&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://github.com/ctianming/pictures/blob/main/Naught%20coin.png&#34; alt=&#34;NaughtCoin&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;从题目中我们可以发现&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function transfer(address _to, uint256 _value) override public lockTokens returns(bool) &amp;#123;
+super.transfer(_to, _value);
+  &amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;题目为 transfer 函数添加上了 lockTokens 的修饰器，但是不必突破它&lt;/p&gt;
+&lt;p&gt;题目引用&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import &#39;openzeppelin-contracts-08/token/ERC20/ERC20.sol&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;我们找到这个仓库，发现转账函数不只 transfer, 还有一个 transferFrom，于是我们只需通过该函数将币转出即可&lt;/p&gt;
+&lt;p&gt;同时需要注意使用 transferFrom 需要提前取得授权（通过 approve 函数和 allowance 函数）&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://github.com/ctianming/pictures/blob/main/view%20library.png&#34; alt=&#34;viewLibrary&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;执行：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;await contract.transferFrom(player, &amp;quot;instance&amp;quot;, await contract.balanceOf(player));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;gatekeepertwo&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gatekeepertwo&#34;&gt;#&lt;/a&gt; &lt;em&gt;GateKeeperTwo&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;先看一下代码&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;D:MarkdownWrite%5CgateKeeperTwo.png&#34; alt=&#34;GateKeeperTwo&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;gateOne：要求使用攻击合约&lt;/p&gt;
+&lt;p&gt;gateTwo：要求合约仅有构造函数&lt;/p&gt;
+&lt;p&gt;gateThree：要求 msg.sender 的异或运算结果符合要求&lt;/p&gt;
+&lt;p&gt;仅需在构造函数中写入&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;uint64 key = uint64(bytes8(keccak256(abi.encodePacked(address(this)))));
+    key = key ^ 0xffffffffffffffff;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;即可完成攻击&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://example.com/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/</guid>
             <title>比特币如何防止双花攻击</title>
