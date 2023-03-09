@@ -10,24 +10,25 @@
         </author>
         <description></description>
         <language>en</language>
-        <pubDate>Sat, 25 Feb 2023 20:04:01 +0800</pubDate>
-        <lastBuildDate>Sat, 25 Feb 2023 20:04:01 +0800</lastBuildDate>
+        <pubDate>Wed, 08 Mar 2023 00:45:36 +0800</pubDate>
+        <lastBuildDate>Wed, 08 Mar 2023 00:45:36 +0800</lastBuildDate>
         <item>
-            <guid isPermalink="true">http://example.com/2023/02/25/Ethernaut%E9%A2%98%E8%A7%A3/</guid>
-            <title>Ethernaut题解</title>
-            <link>http://example.com/2023/02/25/Ethernaut%E9%A2%98%E8%A7%A3/</link>
-            <pubDate>Sat, 25 Feb 2023 20:04:01 +0800</pubDate>
+            <guid isPermalink="true">http://example.com/2023/03/08/EthernautDo/</guid>
+            <title>EthernautDo</title>
+            <link>http://example.com/2023/03/08/EthernautDo/</link>
+            <category term="做题笔记" scheme="http://example.com/tags/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/" />
+            <pubDate>Wed, 08 Mar 2023 00:45:36 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;ethernaut部分题解&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ethernaut部分题解&#34;&gt;#&lt;/a&gt; Ethernaut 部分题解&lt;/h1&gt;
 &lt;h2 id=&#34;recovery&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#recovery&#34;&gt;#&lt;/a&gt; &lt;em&gt;Recovery&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://github.com/ctianming/pictures/blob/main/md%E5%9B%BE%E7%89%87/Recovery%201.png&#34; alt=&#34;Recovery&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;EthernautDo%5CRecovery1.png&#34; alt=&#34;Recovery&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如上图，题目要求找回存储在已丢失地址的以太币，除了题目所说的通过计算得到地址，我们还可以直接通过区块链浏览器获得&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://github.com/ctianming/pictures/blob/main/get%20Address.png&#34; alt=&#34;getAddress&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;如图所示的地址就是存储以太币的地址&lt;br /&gt;
+&lt;p&gt;&lt;img data-src=&#34;EthernautDo/getAddress.png&#34; alt=&#34;getAddress&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如图所示的地址就是存储以太币的地址&lt;br&gt;
 接下来只需将以太币从该地址中再提出来即可&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://github.com/ctianming/pictures/blob/main/submit%20instance.png&#34; alt=&#34;submitInstance&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;EthernautDo/submit%20instance.png&#34; alt=&#34;submitInstance&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;完成题目&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;naught-coin&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#naught-coin&#34;&gt;#&lt;/a&gt; &lt;em&gt;Naught coin&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://github.com/ctianming/pictures/blob/main/Naught%20coin.png&#34; alt=&#34;NaughtCoin&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;EthernautDo/Naught%20coin.png&#34; alt=&#34;NaughtCoin&#34;&gt;&lt;/p&gt;
 &lt;p&gt;从题目中我们可以发现&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;function transfer(address _to, uint256 _value) override public lockTokens returns(bool) &amp;#123;
 super.transfer(_to, _value);
@@ -39,16 +40,30 @@ super.transfer(_to, _value);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;我们找到这个仓库，发现转账函数不只 transfer, 还有一个 transferFrom，于是我们只需通过该函数将币转出即可&lt;/p&gt;
 &lt;p&gt;同时需要注意使用 transferFrom 需要提前取得授权（通过 approve 函数和 allowance 函数）&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://github.com/ctianming/pictures/blob/main/view%20library.png&#34; alt=&#34;viewLibrary&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;EthernautDo/view%20library.png&#34; alt=&#34;viewLibrary&#34;&gt;&lt;/p&gt;
 &lt;p&gt;执行：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;await contract.transferFrom(player, &amp;quot;instance&amp;quot;, await contract.balanceOf(player));
 &lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;gatekeeperone有问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gatekeeperone有问题&#34;&gt;#&lt;/a&gt; &lt;em&gt;GateKeeperOne（有问题）&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;题目：&lt;br&gt;
+&lt;img data-src=&#34;EthernautDo/question.png&#34; alt=&#34;GatekeeperOne&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;gateOne: 要求使用攻击合约&lt;/p&gt;
+&lt;p&gt;gateTwo: 要求 gasleft 是 8191 的整数倍&lt;/p&gt;
+&lt;p&gt;gateThree: 要求获得一个_gatekey&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img data-src=&#34;EthernautDo%5Cmycode.png&#34; alt=&#34;mycode&#34;&gt;&lt;/p&gt;
+&lt;p&gt;对于本题，我之前找了很久的 gas，但是一直没法通过。&lt;/p&gt;
+&lt;p&gt;然后写了如上一个 for 循环，想要暴力通过（&lt;em&gt;因为 call 不会回退&lt;/em&gt;），在本地测试通过，success 返回 true，但是很奇怪的是，在连接上钱包之后却返回 false。&lt;/p&gt;
+&lt;p&gt;所以这里出现了问题了。。。&lt;/p&gt;
 &lt;h2 id=&#34;gatekeepertwo&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gatekeepertwo&#34;&gt;#&lt;/a&gt; &lt;em&gt;GateKeeperTwo&lt;/em&gt;&lt;/h2&gt;
 &lt;p&gt;先看一下代码&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;D:MarkdownWrite%5CgateKeeperTwo.png&#34; alt=&#34;GateKeeperTwo&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;EthernautDo/gateKeeperTwo.png&#34; alt=&#34;GateKeeperTwo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;p&gt;gateOne：要求使用攻击合约&lt;/p&gt;
 &lt;p&gt;gateTwo：要求合约仅有构造函数&lt;/p&gt;
 &lt;p&gt;gateThree：要求 msg.sender 的异或运算结果符合要求&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;仅需在构造函数中写入&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;uint64 key = uint64(bytes8(keccak256(abi.encodePacked(address(this)))));
     key = key ^ 0xffffffffffffffff;
