@@ -20,7 +20,7 @@
   <meta name="description" content="# 比特币如何防止双花攻击 # 分布式系统中的双花问题  对于分布式系统来说，交易记录会广播给网络中所有节点（例如 A 花费 10 元购买了 B 后，A 会在网络广播交易信息，从而网络中的每个节点都会知道 “A 已经花费 10 元来购买 B”）。 每个节点都会记录这个交易信息，然后将信息传输给网络中的下个节点，并且这个过程会持续直到网络中的所有节点已经记录了这条信息 “A 已经使用了 10 元来购">
 <meta property="og:type" content="article">
 <meta property="og:title" content="比特币如何防止双花攻击">
-<meta property="og:url" content="http://ctianming.github.io/project/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/index.html">
+<meta property="og:url" content="http://ctianming.github.io/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="# 比特币如何防止双花攻击 # 分布式系统中的双花问题  对于分布式系统来说，交易记录会广播给网络中所有节点（例如 A 花费 10 元购买了 B 后，A 会在网络广播交易信息，从而网络中的每个节点都会知道 “A 已经花费 10 元来购买 B”）。 每个节点都会记录这个交易信息，然后将信息传输给网络中的下个节点，并且这个过程会持续直到网络中的所有节点已经记录了这条信息 “A 已经使用了 10 元来购">
 <meta property="og:locale" content="en_US">
@@ -37,27 +37,27 @@
     
   
   <!-- 样式表文件 -->
-  <link rel="stylesheet" id="kratos-css" href="/project/css/kratosr.min.css" media="all"></script>
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
   
-    <link rel="stylesheet" id="darkmode-css" href="/project/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
-    <script src="/project/js/kr-dark.min.js"></script>
-  
-  
-    <link rel="stylesheet" id="highlight-css" href="/project/css/highlight/night-eighties.min.css" media="all"></script>
-  
-  <link rel="stylesheet" id="fontawe-css" href="/project/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
-  <link rel="stylesheet" id="nprogress-css" href="/project/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
   
   
-    <link rel="stylesheet" href="/project/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
   
   
-    <link rel="stylesheet" href="/project/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
   
   <!-- 不得不预先加载的一些JS文件 -->
-  <script src="/project/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
   
-    <script src="/project/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
   
   
   <style>
@@ -88,7 +88,7 @@
             </header>
             <header id="kratos-mobile-topnav" class="kratos-topnav">
                 <div class="container">
-                    <div class="color-logo"><a href="/project/">Hexo</a></div>
+                    <div class="color-logo"><a href="/">Hexo</a></div>
                     <div class="nav-toggle">
                         <a class="kratos-nav-toggle js-kratos-nav-toggle">
                             <i></i>
@@ -101,7 +101,7 @@
             <!-- <div class="kratos-overlay"></div> -->
             <div class="kratos-cover kratos-cover-2 text-center">
                 <div class="desc desc2 animate-box">
-                    <a href="/project/">
+                    <a href="/">
                         <h2>Hexo</h2> <br />
                         <span></span>
                     </a>
@@ -122,7 +122,7 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="http://ctianming.github.io/project/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/">
+    <link itemprop="mainEntityOfPage" href="http://ctianming.github.io/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
@@ -252,7 +252,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://ctianming.github.io/project/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/",
+                text: "http://ctianming.github.io/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -264,7 +264,7 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://ctianming.github.io/project/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/";
+            const hostUrl       = "http://ctianming.github.io/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/";
             const title         = "「比特币如何防止双花攻击」";
             const excerpt       = `# 比特币如何防止双花攻击
 # 分布式系统中的双花问题
@@ -288,7 +288,7 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/project/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a>
+                    <a class="tag-none-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a>
                 </div>
                 <div class="pull-date">
                     <time datetime="2022-11-27T12:40:36.683Z" itemprop="dateModified">最后编辑：2022-11-27</time>
@@ -300,12 +300,12 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" 比特币的交易过程，结合UTXO和秘钥技术的说明" href="/project/2022/11/27/比特币的交易过程，结合UTXO和秘钥技术的说明/">&lt; 上一篇</a>
+                <a title=" 比特币的交易过程，结合UTXO和秘钥技术的说明" href="/2022/11/27/比特币的交易过程，结合UTXO和秘钥技术的说明/">&lt; 上一篇</a>
             </div>
             
             
             <div class="nav-next clearfix">
-                <a title=" EthernautDo" href="/project/2023/03/08/EthernautDo/">下一篇 &gt;</a>
+                <a title=" EthernautDo" href="/2023/03/08/EthernautDo/">下一篇 &gt;</a>
             </div>
             
         </nav>
@@ -337,7 +337,7 @@
         <p class="text-center"></p>
     </div>
     <div class="site-meta">
-        <a class="meta-item" href="/project/archives/">
+        <a class="meta-item" href="/archives/">
             <span class="title">
                 文章
             </span>
@@ -345,7 +345,7 @@
                 4
             </span>
         </a>
-        <a class="meta-item" href="/project/categories/">
+        <a class="meta-item" href="/categories/">
             <span class="title">
                 分类
             </span>
@@ -353,7 +353,7 @@
                 0
             </span>
         </a>
-        <a class="meta-item" href="/project/tags/">
+        <a class="meta-item" href="/tags/">
             <span class="title">
                 标签
             </span>
@@ -373,7 +373,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/project/tags/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/" style="font-size: 0.6em;">做题笔记</a> <a href="/project/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 0.8em;">学习笔记</a>
+        <a href="/tags/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/" style="font-size: 0.6em;">做题笔记</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 0.8em;">学习笔记</a>
       </div>
   </aside>
 
@@ -387,25 +387,25 @@
         
           
           
-            <a class="list-group-item" href="/project/2023/03/08/EthernautDo/"><i class="fa  fa-book"></i> EthernautDo</a>
+            <a class="list-group-item" href="/2023/03/08/EthernautDo/"><i class="fa  fa-book"></i> EthernautDo</a>
             
           
         
           
           
-            <a class="list-group-item" href="/project/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/"><i class="fa  fa-book"></i> 比特币如何防止双花攻击</a>
+            <a class="list-group-item" href="/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/"><i class="fa  fa-book"></i> 比特币如何防止双花攻击</a>
             
           
         
           
           
-            <a class="list-group-item" href="/project/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/"><i class="fa  fa-book"></i> 比特币的交易过程，结合UTXO和秘钥技术的说明</a>
+            <a class="list-group-item" href="/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/"><i class="fa  fa-book"></i> 比特币的交易过程，结合UTXO和秘钥技术的说明</a>
             
           
         
           
           
-            <a class="list-group-item" href="/project/2022/11/16/hello-world/"><i class="fa  fa-book"></i> Hello World</a>
+            <a class="list-group-item" href="/2022/11/16/hello-world/"><i class="fa  fa-book"></i> Hello World</a>
             
           
         
@@ -464,7 +464,7 @@
             <div class="tool">
                 
                     <div class="box search-box">
-                        <a href="/project/search/">
+                        <a href="/search/">
                             <span class="fa fa-search"></span>
                         </a>
                     </div>
@@ -486,24 +486,24 @@
 </div>
 </div>
 
-        <script defer src="/project/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
-<script defer src="/project/vendors/nprogress@0.2.0/nprogress.js"></script>
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
 <script>
     if (!window.kr) {
         window.kr = {};
     }
     window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
-    window.kr.siteRoot = "/project/";
+    window.kr.siteRoot = "/";
 </script>
 
 
-    <script async src="/project/js/candy.min.js"></script>
+    <script async src="/js/candy.min.js"></script>
 
 
 
-    <script defer src="/project/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
     
-    <script defer src="/project/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
     <meting-js
         server="netease"
         type="playlist"
@@ -515,10 +515,10 @@
 
 
 
-    <script defer src="/project/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
-<script defer src="/project/js/kratosr.min.js"></script>
-<script defer src="/project/js/pjax.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
 
 
 
