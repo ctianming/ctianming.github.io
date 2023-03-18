@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Hola • Posts by &#34;做题笔记&#34; tag</title>
+        <link>http://ctianming.github.io/projiect</link>
+        <description></description>
+        <language>en</language>
+        <pubDate>Wed, 08 Mar 2023 00:45:36 +0800</pubDate>
+        <lastBuildDate>Wed, 08 Mar 2023 00:45:36 +0800</lastBuildDate>
+        <category>学习笔记</category>
+        <category>做题笔记</category>
+        <item>
+            <guid isPermalink="true">http://ctianming.github.io/projiect/2023/03/08/EthernautDo/</guid>
+            <title>EthernautDo</title>
+            <link>http://ctianming.github.io/projiect/2023/03/08/EthernautDo/</link>
+            <category>做题笔记</category>
+            <pubDate>Wed, 08 Mar 2023 00:45:36 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;ethernaut部分题解&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ethernaut部分题解&#34;&gt;#&lt;/a&gt; Ethernaut 部分题解&lt;/h1&gt;
+&lt;h2 id=&#34;gatekeeperone有问题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#gatekeeperone有问题&#34;&gt;#&lt;/a&gt; &lt;em&gt;GateKeeperOne（有问题）&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;题目：&lt;br&gt;
+&lt;img src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/question.png&#34; alt=&#34;GatekeeperOne&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;gateOne: 要求使用攻击合约&lt;/p&gt;
+&lt;p&gt;gateTwo: 要求 gasleft 是 8191 的整数倍&lt;/p&gt;
+&lt;p&gt;gateThree: 要求获得一个_gatekey&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/mycode.png&#34; alt=&#34;mycode&#34;&gt;&lt;/p&gt;
+&lt;p&gt;对于本题，我之前找了很久的 gas，但是一直没法通过。&lt;/p&gt;
+&lt;p&gt;然后写了如上一个 for 循环，想要暴力通过（&lt;em&gt;因为 call 不会回退&lt;/em&gt;），在本地测试通过，success 返回 true，但是很奇怪的是，在连接上钱包之后却返回 false。&lt;/p&gt;
+&lt;p&gt;所以这里出现了问题了。。。&lt;/p&gt;
+&lt;h2 id=&#34;gatekeepertwo&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#gatekeepertwo&#34;&gt;#&lt;/a&gt; &lt;em&gt;GateKeeperTwo&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;先看一下代码&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/gateKeeperTwo.png&#34; alt=&#34;GateKeeperTwo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;gateOne：要求使用攻击合约&lt;/p&gt;
+&lt;p&gt;gateTwo：要求合约仅有构造函数&lt;/p&gt;
+&lt;p&gt;gateThree：要求 msg.sender 的异或运算结果符合要求&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;仅需在构造函数中写入&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;uint64 key = uint64(bytes8(keccak256(abi.encodePacked(address(this)))));
+    key = key ^ 0xffffffffffffffff;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;即可完成攻击&lt;/p&gt;
+&lt;h2 id=&#34;recovery&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#recovery&#34;&gt;#&lt;/a&gt; &lt;em&gt;Recovery&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/Recovery1.png&#34; alt=&#34;Recovery&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如上图，题目要求找回存储在已丢失地址的以太币，除了题目所说的通过计算得到地址，我们还可以直接通过区块链浏览器获得&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/projiect/.io//getAddress.png&#34; alt=&#34;getAddress&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如图所示的地址就是存储以太币的地址&lt;br&gt;
+接下来只需将以太币从该地址中再提出来即可&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/submit%20instance.png&#34; alt=&#34;submitInstance&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;完成题目&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;naught-coin&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#naught-coin&#34;&gt;#&lt;/a&gt; &lt;em&gt;Naught coin&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/Naught%20coin.png&#34; alt=&#34;NaughtCoin&#34;&gt;&lt;/p&gt;
+&lt;p&gt;从题目中我们可以发现&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function transfer(address _to, uint256 _value) override public lockTokens returns(bool) &amp;#123;
+super.transfer(_to, _value);
+  &amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;题目为 transfer 函数添加上了 lockTokens 的修饰器，但是不必突破它&lt;/p&gt;
+&lt;p&gt;题目引用&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import &#39;openzeppelin-contracts-08/token/ERC20/ERC20.sol&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;我们找到这个仓库，发现转账函数不只 transfer, 还有一个 transferFrom，于是我们只需通过该函数将币转出即可&lt;/p&gt;
+&lt;p&gt;同时需要注意使用 transferFrom 需要提前取得授权（通过 approve 函数和 allowance 函数）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/view%20library.png&#34; alt=&#34;viewLibrary&#34;&gt;&lt;/p&gt;
+&lt;p&gt;执行：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;await contract.transferFrom(player, &amp;quot;instance&amp;quot;, await contract.balanceOf(player));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;magicnumber搁置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#magicnumber搁置&#34;&gt;#&lt;/a&gt; MagicNumber（搁置）&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/MagicNumber.png&#34; alt=&#34;MagicNumber&#34;&gt;&lt;br&gt;
+ 本题需要使用原始字节码，实在不会，只得暂时搁置。&lt;/p&gt;
+&lt;h2 id=&#34;alien-codex&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#alien-codex&#34;&gt;#&lt;/a&gt; Alien Codex&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/AlienCodex.png&#34; alt=&#34;AlienCodex&#34;&gt;&lt;/p&gt;
+&lt;p&gt;本题在于找到 owner 在 codex 中的存储位置，然后运行 revise 函数将相应的 owner 改为自己。由于该合约继承 Ownable 合约，所以 owner 应该存储在第 0 个槽位。而 codex 的长度存储在第一个槽位。&lt;/p&gt;
+&lt;p&gt;执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;await web3.eth.getStorageAt(instance.1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;发现 codex 的长度是 0；那么就需要执行 retract 函数，使 codex 下溢，长度变为 2^256.&lt;/p&gt;
+&lt;p&gt;接下来通过 keccak256 (bytes32 (1)) 得到 codex 的实际内容开始存储的位置 x；那么，就得到 owner 存储的位置为 2^256-x。&lt;/p&gt;
+&lt;p&gt;最后，只需根据所得位置，执行 revise 即可。&lt;/p&gt;
+&lt;h2 id=&#34;denial&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#denial&#34;&gt;#&lt;/a&gt; Denial&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/Denial.png&#34; alt=&#34;Denial&#34;&gt;&lt;/p&gt;
+&lt;p&gt;这个题目，一眼就抓住那个 receiver，只需利用好 receive 阻止 owner 提走资金即可完成。&lt;/p&gt;
+&lt;p&gt;攻击合约：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/attackDenial.png&#34; alt=&#34;mycode&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如图，该题中，owner 提钱时调用 withdraw，在提走资金前会先给我转钱。那么，只需在攻击合约中添加一个 receive，并使 owner 出现递归调用，就可以耗尽他的 gas，进而阻止提取资金&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;比较神奇的是，这个代码第一次并未成功，在我尝试许多次最终改回这个代码后，它突然就成功了？？？？
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/why.png&#34; alt=&#34;why&#34;&gt;&lt;/p&gt;
+&lt;p&gt;真怪。。。&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
