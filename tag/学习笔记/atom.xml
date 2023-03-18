@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://ctianming.github.io/projiect</id>
+    <id>http://ctianming.github.io/project</id>
     <title>Hola • Posts by &#34;学习笔记&#34; tag</title>
-    <link href="http://ctianming.github.io/projiect" />
+    <link href="http://ctianming.github.io/project" />
     <updated>2022-11-26T16:00:00.000Z</updated>
-    <category term="学习笔记" />
     <category term="做题笔记" />
+    <category term="学习笔记" />
     <entry>
-        <id>http://ctianming.github.io/projiect/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/</id>
+        <id>http://ctianming.github.io/project/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/</id>
         <title>比特币的交易过程，结合UTXO和秘钥技术的说明</title>
-        <link rel="alternate" href="http://ctianming.github.io/projiect/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/"/>
+        <link rel="alternate" href="http://ctianming.github.io/project/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/"/>
         <content type="html">&lt;h1 id=&#34;比特币的交易过程结合utxo和秘钥技术的说明&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#比特币的交易过程结合utxo和秘钥技术的说明&#34;&gt;#&lt;/a&gt; 比特币的交易过程，结合 UTXO 和秘钥技术的说明&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;mark&gt;首先我们尝试分开理解 UTXO 与秘钥技术&lt;/mark&gt;&lt;/li&gt;
@@ -81,9 +81,9 @@
         <updated>2022-11-26T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://ctianming.github.io/projiect/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/</id>
+        <id>http://ctianming.github.io/project/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/</id>
         <title>比特币如何防止双花攻击</title>
-        <link rel="alternate" href="http://ctianming.github.io/projiect/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/"/>
+        <link rel="alternate" href="http://ctianming.github.io/project/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/"/>
         <content type="html">&lt;h1 id=&#34;比特币如何防止双花攻击&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#比特币如何防止双花攻击&#34;&gt;#&lt;/a&gt; 比特币如何防止双花攻击&lt;/h1&gt;
 &lt;h2 id=&#34;分布式系统中的双花问题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#分布式系统中的双花问题&#34;&gt;#&lt;/a&gt; 分布式系统中的双花问题&lt;/h2&gt;
 &lt;blockquote&gt;
