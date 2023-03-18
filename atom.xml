@@ -1,34 +1,34 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://example.com</id>
+    <id>http://ctianming.github.io/projiect</id>
     <title>Hola</title>
     <subtitle></subtitle>
-    <icon>http://example.com/images/favicon.ico</icon>
-    <link href="http://example.com" />
+    <icon>http://ctianming.github.io/projiect/images/favicon.ico</icon>
+    <link href="http://ctianming.github.io/projiect" />
     <author>
       <name>Clearsky</name>
     </author>
     <updated>2023-03-07T16:45:36.000Z</updated>
     <entry>
-        <id>http://example.com/2023/03/08/EthernautDo/</id>
+        <id>http://ctianming.github.io/projiect/2023/03/08/EthernautDo/</id>
         <title>EthernautDo</title>
-        <link rel="alternate" href="http://example.com/2023/03/08/EthernautDo/"/>
+        <link rel="alternate" href="http://ctianming.github.io/projiect/2023/03/08/EthernautDo/"/>
         <content type="html">&lt;h1 id=&#34;ethernaut部分题解&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ethernaut部分题解&#34;&gt;#&lt;/a&gt; Ethernaut 部分题解&lt;/h1&gt;
 &lt;h2 id=&#34;gatekeeperone有问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gatekeeperone有问题&#34;&gt;#&lt;/a&gt; &lt;em&gt;GateKeeperOne（有问题）&lt;/em&gt;&lt;/h2&gt;
 &lt;p&gt;题目：&lt;br&gt;
-&lt;img data-src=&#34;EthernautDo/question.png&#34; alt=&#34;GatekeeperOne&#34;&gt;&lt;/p&gt;
+&lt;img data-src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/question.png&#34; alt=&#34;GatekeeperOne&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;gateOne: 要求使用攻击合约&lt;/p&gt;
 &lt;p&gt;gateTwo: 要求 gasleft 是 8191 的整数倍&lt;/p&gt;
 &lt;p&gt;gateThree: 要求获得一个_gatekey&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img data-src=&#34;EthernautDo%5Cmycode.png&#34; alt=&#34;mycode&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/mycode.png&#34; alt=&#34;mycode&#34;&gt;&lt;/p&gt;
 &lt;p&gt;对于本题，我之前找了很久的 gas，但是一直没法通过。&lt;/p&gt;
 &lt;p&gt;然后写了如上一个 for 循环，想要暴力通过（&lt;em&gt;因为 call 不会回退&lt;/em&gt;），在本地测试通过，success 返回 true，但是很奇怪的是，在连接上钱包之后却返回 false。&lt;/p&gt;
 &lt;p&gt;所以这里出现了问题了。。。&lt;/p&gt;
 &lt;h2 id=&#34;gatekeepertwo&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gatekeepertwo&#34;&gt;#&lt;/a&gt; &lt;em&gt;GateKeeperTwo&lt;/em&gt;&lt;/h2&gt;
 &lt;p&gt;先看一下代码&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;EthernautDo/gateKeeperTwo.png&#34; alt=&#34;GateKeeperTwo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/gateKeeperTwo.png&#34; alt=&#34;GateKeeperTwo&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;gateOne：要求使用攻击合约&lt;/p&gt;
 &lt;p&gt;gateTwo：要求合约仅有构造函数&lt;/p&gt;
@@ -40,15 +40,15 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;即可完成攻击&lt;/p&gt;
 &lt;h2 id=&#34;recovery&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#recovery&#34;&gt;#&lt;/a&gt; &lt;em&gt;Recovery&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img data-src=&#34;EthernautDo%5CRecovery1.png&#34; alt=&#34;Recovery&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/Recovery1.png&#34; alt=&#34;Recovery&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如上图，题目要求找回存储在已丢失地址的以太币，除了题目所说的通过计算得到地址，我们还可以直接通过区块链浏览器获得&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;EthernautDo/getAddress.png&#34; alt=&#34;getAddress&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如图所示的地址就是存储以太币的地址&lt;br&gt;
 接下来只需将以太币从该地址中再提出来即可&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;EthernautDo/submit%20instance.png&#34; alt=&#34;submitInstance&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/submit%20instance.png&#34; alt=&#34;submitInstance&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;完成题目&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;naught-coin&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#naught-coin&#34;&gt;#&lt;/a&gt; &lt;em&gt;Naught coin&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img data-src=&#34;EthernautDo/Naught%20coin.png&#34; alt=&#34;NaughtCoin&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/Naught%20coin.png&#34; alt=&#34;NaughtCoin&#34;&gt;&lt;/p&gt;
 &lt;p&gt;从题目中我们可以发现&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;function transfer(address _to, uint256 _value) override public lockTokens returns(bool) &amp;#123;
 super.transfer(_to, _value);
@@ -60,15 +60,15 @@ super.transfer(_to, _value);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;我们找到这个仓库，发现转账函数不只 transfer, 还有一个 transferFrom，于是我们只需通过该函数将币转出即可&lt;/p&gt;
 &lt;p&gt;同时需要注意使用 transferFrom 需要提前取得授权（通过 approve 函数和 allowance 函数）&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;EthernautDo/view%20library.png&#34; alt=&#34;viewLibrary&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/view%20library.png&#34; alt=&#34;viewLibrary&#34;&gt;&lt;/p&gt;
 &lt;p&gt;执行：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;await contract.transferFrom(player, &amp;quot;instance&amp;quot;, await contract.balanceOf(player));
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;magicnumber搁置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#magicnumber搁置&#34;&gt;#&lt;/a&gt; MagicNumber（搁置）&lt;/h2&gt;
-&lt;p&gt;&lt;img data-src=&#34;EthernautDo%5CMagicNumber.png&#34; alt=&#34;MagicNumber&#34;&gt;&lt;/p&gt;
-&lt;p&gt;本题需要使用原始字节码，实在不会，只得暂时搁置。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/MagicNumber.png&#34; alt=&#34;MagicNumber&#34;&gt;&lt;br&gt;
+ 本题需要使用原始字节码，实在不会，只得暂时搁置。&lt;/p&gt;
 &lt;h2 id=&#34;alien-codex&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#alien-codex&#34;&gt;#&lt;/a&gt; Alien Codex&lt;/h2&gt;
-&lt;p&gt;&lt;img data-src=&#34;EthernautDo%5CAlienCodex.png&#34; alt=&#34;AlienCodex&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/AlienCodex.png&#34; alt=&#34;AlienCodex&#34;&gt;&lt;/p&gt;
 &lt;p&gt;本题在于找到 owner 在 codex 中的存储位置，然后运行 revise 函数将相应的 owner 改为自己。由于该合约继承 Ownable 合约，所以 owner 应该存储在第 0 个槽位。而 codex 的长度存储在第一个槽位。&lt;/p&gt;
 &lt;p&gt;执行&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;await web3.eth.getStorageAt(instance.1)
@@ -77,23 +77,23 @@ super.transfer(_to, _value);
 &lt;p&gt;接下来通过 keccak256 (bytes32 (1)) 得到 codex 的实际内容开始存储的位置 x；那么，就得到 owner 存储的位置为 2^256-x。&lt;/p&gt;
 &lt;p&gt;最后，只需根据所得位置，执行 revise 即可。&lt;/p&gt;
 &lt;h2 id=&#34;denial&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#denial&#34;&gt;#&lt;/a&gt; Denial&lt;/h2&gt;
-&lt;p&gt;&lt;img data-src=&#34;EthernautDo%5CDenial.png&#34; alt=&#34;Denial&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/Denial.png&#34; alt=&#34;Denial&#34;&gt;&lt;/p&gt;
 &lt;p&gt;这个题目，一眼就抓住那个 receiver，只需利用好 receive 阻止 owner 提走资金即可完成。&lt;/p&gt;
 &lt;p&gt;攻击合约：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;EthernautDo%5CattackDenial.png&#34; alt=&#34;mycode&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/attackDenial.png&#34; alt=&#34;mycode&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如图，该题中，owner 提钱时调用 withdraw，在提走资金前会先给我转钱。那么，只需在攻击合约中添加一个 receive，并使 owner 出现递归调用，就可以耗尽他的 gas，进而阻止提取资金&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;比较神奇的是，这个代码第一次并未成功，在我尝试许多次最终改回这个代码后，它突然就成功了？？？？
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img data-src=&#34;EthernautDo%5Cwhy.png&#34; alt=&#34;why&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/why.png&#34; alt=&#34;why&#34;&gt;&lt;/p&gt;
 &lt;p&gt;真怪。。。&lt;/p&gt;
 </content>
-        <category term="做题笔记" scheme="http://example.com/tags/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/" />
+        <category term="做题笔记" scheme="http://ctianming.github.io/projiect/tags/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/" />
         <updated>2023-03-07T16:45:36.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/</id>
+        <id>http://ctianming.github.io/projiect/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/</id>
         <title>比特币的交易过程，结合UTXO和秘钥技术的说明</title>
-        <link rel="alternate" href="http://example.com/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/"/>
+        <link rel="alternate" href="http://ctianming.github.io/projiect/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/"/>
         <content type="html">&lt;h1 id=&#34;比特币的交易过程结合utxo和秘钥技术的说明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#比特币的交易过程结合utxo和秘钥技术的说明&#34;&gt;#&lt;/a&gt; 比特币的交易过程，结合 UTXO 和秘钥技术的说明&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;mark&gt;首先我们尝试分开理解 UTXO 与秘钥技术&lt;/mark&gt;&lt;/li&gt;
@@ -161,13 +161,13 @@ super.transfer(_to, _value);
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;mark&gt;&lt;em&gt;从这个抽象的交易过程，我们可以发现，比特币的交易实质上是一堆 UTXO 的输入和输出的过程，伴随旧的 UTXO 被消耗，新的 UTXO 产生，完成了一次又一次的比特币交易。交易的过程由非对称加密和哈希算法进行双重保护，比特币持有者可以放心完成交易而不必担心身份被泄露，交易过程中也消耗了一部分比特币，用于奖励打包交易的矿工，使矿工乐于完成自己维护比特币网络的任务。&lt;/em&gt;&lt;/mark&gt;&lt;/p&gt;
 </content>
-        <category term="学习笔记" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+        <category term="学习笔记" scheme="http://ctianming.github.io/projiect/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
         <updated>2022-11-26T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/</id>
+        <id>http://ctianming.github.io/projiect/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/</id>
         <title>比特币如何防止双花攻击</title>
-        <link rel="alternate" href="http://example.com/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/"/>
+        <link rel="alternate" href="http://ctianming.github.io/projiect/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/"/>
         <content type="html">&lt;h1 id=&#34;比特币如何防止双花攻击&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#比特币如何防止双花攻击&#34;&gt;#&lt;/a&gt; 比特币如何防止双花攻击&lt;/h1&gt;
 &lt;h2 id=&#34;分布式系统中的双花问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分布式系统中的双花问题&#34;&gt;#&lt;/a&gt; 分布式系统中的双花问题&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -211,13 +211,13 @@ super.transfer(_to, _value);
 &lt;p&gt;系统会根据最长链进行取舍，哪条链上新产生的区块可以使得区块链变得更长，哪条便是最长链（主链），而短链则被所有矿工淘汰，矿工通过记账来换取挖矿奖励，即使部分节点矿工作恶修改账本，其节点也不会承认，从而避免双花。可以说 “最长链原则” 保障链比特币网络的安全和稳定共识。&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
-        <category term="学习笔记" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+        <category term="学习笔记" scheme="http://ctianming.github.io/projiect/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
         <updated>2022-11-26T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/2022/11/16/hello-world/</id>
+        <id>http://ctianming.github.io/projiect/2022/11/16/hello-world/</id>
         <title>Hello World</title>
-        <link rel="alternate" href="http://example.com/2022/11/16/hello-world/"/>
+        <link rel="alternate" href="http://ctianming.github.io/projiect/2022/11/16/hello-world/"/>
         <content type="html">&lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
 &lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
