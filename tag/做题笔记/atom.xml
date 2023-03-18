@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ctianming.github.io/project</id>
-    <title>Hola • Posts by &#34;做题笔记&#34; tag</title>
+    <title>Hexo • Posts by &#34;做题笔记&#34; tag</title>
     <link href="http://ctianming.github.io/project" />
     <updated>2023-03-07T16:45:36.000Z</updated>
     <category term="做题笔记" />
@@ -39,7 +39,7 @@
 &lt;h2 id=&#34;recovery&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#recovery&#34;&gt;#&lt;/a&gt; &lt;em&gt;Recovery&lt;/em&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/Recovery1.png&#34; alt=&#34;Recovery&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如上图，题目要求找回存储在已丢失地址的以太币，除了题目所说的通过计算得到地址，我们还可以直接通过区块链浏览器获得&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/project/.io//getAddress.png&#34; alt=&#34;getAddress&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;EthernautDo/getAddress.png&#34; alt=&#34;getAddress&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如图所示的地址就是存储以太币的地址&lt;br&gt;
 接下来只需将以太币从该地址中再提出来即可&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/submit%20instance.png&#34; alt=&#34;submitInstance&#34;&gt;&lt;/p&gt;

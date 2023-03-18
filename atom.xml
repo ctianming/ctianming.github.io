@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ctianming.github.io/project</id>
-    <title>Hola</title>
+    <title>Hexo</title>
     <link href="http://ctianming.github.io/project" />
     <updated>2023-03-07T16:45:36.000Z</updated>
     <category term="做题笔记" />
@@ -39,7 +39,7 @@
 &lt;h2 id=&#34;recovery&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#recovery&#34;&gt;#&lt;/a&gt; &lt;em&gt;Recovery&lt;/em&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/Recovery1.png&#34; alt=&#34;Recovery&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如上图，题目要求找回存储在已丢失地址的以太币，除了题目所说的通过计算得到地址，我们还可以直接通过区块链浏览器获得&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/project/.io//getAddress.png&#34; alt=&#34;getAddress&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;EthernautDo/getAddress.png&#34; alt=&#34;getAddress&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如图所示的地址就是存储以太币的地址&lt;br&gt;
 接下来只需将以太币从该地址中再提出来即可&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://gitee.com/git_clear_sky/images/raw/master/imgs/submit%20instance.png&#34; alt=&#34;submitInstance&#34;&gt;&lt;/p&gt;
@@ -86,6 +86,56 @@ super.transfer(_to, _value);
 </content>
         <category term="做题笔记" />
         <updated>2023-03-07T16:45:36.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://ctianming.github.io/project/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/</id>
+        <title>比特币如何防止双花攻击</title>
+        <link rel="alternate" href="http://ctianming.github.io/project/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/"/>
+        <content type="html">&lt;h1 id=&#34;比特币如何防止双花攻击&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#比特币如何防止双花攻击&#34;&gt;#&lt;/a&gt; 比特币如何防止双花攻击&lt;/h1&gt;
+&lt;h2 id=&#34;分布式系统中的双花问题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#分布式系统中的双花问题&#34;&gt;#&lt;/a&gt; 分布式系统中的双花问题&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于分布式系统来说，交易记录会广播给网络中所有节点（例如 A 花费 10 元购买了 B 后，A 会在网络广播交易信息，从而网络中的每个节点都会知道 “A 已经花费 10 元来购买 B”）。&lt;/p&gt;
+&lt;p&gt;每个节点都会记录这个交易信息，然后将信息传输给网络中的下个节点，并且这个过程会持续直到网络中的所有节点已经记录了这条信息&lt;span class=&#34;red&#34;&gt; “A 已经使用了 10 元来购买 B”&lt;/span&gt;。&lt;/p&gt;
+&lt;p&gt;但是，在信息通过庞大网络进行传输的时候，以下问题也会出现：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;ins&gt;当信息在网络中传播的时候，路径不同，并且在不同时间到达不同节点。&lt;/ins&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;ins&gt;由于节点会失效，有些节点也许不能将信息传递给下个节点，然后这个消息就会丢失。&lt;/ins&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因此，在某个时间会发生这种情况，某些节点知道 A 已经花费了 10 元购买 B，但是某些节点却不知道这一消息。&lt;/p&gt;
+&lt;p&gt;对于那些不知道 A 花费 10 元购买 B 的节点来说，这条信息还没有传达给他们；他们仍然会认为，A 还有闲置的 10 元可以购买任何其他东西。&lt;/p&gt;
+&lt;p&gt;因此，对于 A 来说，很可能她会向网络中传播另一个消息&lt;span class=&#34;red&#34;&gt; “A 已经花费了 10 元来购买 C”&lt;/span&gt;，并且如果这个信息在&lt;span class=&#34;red&#34;&gt; “A 花费了 10 元来购买 B”&lt;/span&gt; 这个消息之前达到节点，那么这个节点就会认为 A 已经花了 10 元来买 C。&lt;/p&gt;
+&lt;p&gt;这就有可能造成这种情况，&lt;span class=&#34;red&#34;&gt;Alice 能够花费 10 元买 B，并且花费同样的 10 元来买 C&lt;/span&gt;；这是违背常理的，因为 A 只有 10 元，并不是 20 元。这就是&lt;em&gt;&lt;strong&gt;双花问题&lt;/strong&gt;&lt;/em&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;解决办法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#解决办法&#34;&gt;#&lt;/a&gt; 解决办法&lt;/h2&gt;
+&lt;p&gt;&lt;mark&gt;这笔钱是固定的，如何保证这笔钱在交易过程中，只支付了一次呢？&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;比特币的创始人中本聪在《比特币白皮书》中写道，比特币的支付步骤是这样说的:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1. 有一个新的交易，要向全网公布广播。&lt;/p&gt;
+&lt;p&gt;2. 每一个节点，都要将收集到的交易信息，放入一个区块中。&lt;/p&gt;
+&lt;p&gt;3. 每一个节点都要试着在自己的区块中，找到一个足够难的工作量证明。&lt;/p&gt;
+&lt;p&gt;4. 当一个节点找到了自己的工作量证明，都要对全网进行公布广播。&lt;/p&gt;
+&lt;p&gt;5. 当且仅当这个区块中的所有交易是有效且之前从未有过，其他的节点才承认这个交易过程的有效性。&lt;/p&gt;
+&lt;p&gt;6. 其他节点表示承认这个区块，表示认可的方法就是，根据这个区块的编码，往后延长这个链接。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这样说来，在交易发生的时刻，比特币的交易数据就被盖上了一个时间戳；而在这笔交易数据被打包到区块中这个过程中，就完成了第一次确认，在连续地进行了六次确认之后，这个记录就不能被轻易篡改了。&lt;/p&gt;
+&lt;p&gt;在这种情况下，当我尝试进行两次支付交易时，由于确认时间较长，后一交易几乎不可能与前一次交易同时确认。在第一次交易确认后，资金在第二次交易中无法确认。区块链的全网记账需要在整个网络中达成共识，就无法产生双花问题。&lt;br&gt;
+&lt;mark&gt;这样，也引出了防止双花攻击的两个重点&lt;/mark&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h3 id=&#34;一-时间戳机制&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-时间戳机制&#34;&gt;#&lt;/a&gt; &lt;ins&gt;一、时间戳机制：&lt;/ins&gt;&lt;/h3&gt;
+&lt;p&gt;区块有明确的时间顺序，交易信息广播后，先被打进区块中的交易，就被认为是合法的，之后的交易就会被网络拒绝。&lt;/p&gt;
+&lt;p&gt;一个交易并不是在被矿工写到一个区块上时就生效了，而是要等这条链真正的成为了链上的最长链之后，才认为交易真正不可逆。这也就是为什么每次转账后，都建议等待六次确认，交易所在区块之后每新增一个区块，就是一次确认，等待六次确认之后，大部分矿工都承认这条链是最长链，交易将不可逆转。&lt;/p&gt;
+&lt;h3 id=&#34;二-最长链原则&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二-最长链原则&#34;&gt;#&lt;/a&gt; &lt;ins&gt;二、最长链原则：&lt;/ins&gt;&lt;/h3&gt;
+&lt;p&gt;比特币的 POW 共识机制里，矿工通过记账获得挖矿奖励，以最长链为原则，只有在最长链上挖矿的矿工才可以获得奖励。&lt;/p&gt;
+&lt;p&gt;由于随机数和网络延迟等原因，可能会出现两个矿工同一时间挖出区块，如果他们一起参与记账，就会造成区块链分叉。&lt;/p&gt;
+&lt;p&gt;系统会根据最长链进行取舍，哪条链上新产生的区块可以使得区块链变得更长，哪条便是最长链（主链），而短链则被所有矿工淘汰，矿工通过记账来换取挖矿奖励，即使部分节点矿工作恶修改账本，其节点也不会承认，从而避免双花。可以说 “最长链原则” 保障链比特币网络的安全和稳定共识。&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+        <category term="学习笔记" />
+        <updated>2022-11-26T16:00:00.000Z</updated>
     </entry>
     <entry>
         <id>http://ctianming.github.io/project/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/</id>
@@ -162,69 +212,23 @@ super.transfer(_to, _value);
         <updated>2022-11-26T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://ctianming.github.io/project/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/</id>
-        <title>比特币如何防止双花攻击</title>
-        <link rel="alternate" href="http://ctianming.github.io/project/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/"/>
-        <content type="html">&lt;h1 id=&#34;比特币如何防止双花攻击&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#比特币如何防止双花攻击&#34;&gt;#&lt;/a&gt; 比特币如何防止双花攻击&lt;/h1&gt;
-&lt;h2 id=&#34;分布式系统中的双花问题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#分布式系统中的双花问题&#34;&gt;#&lt;/a&gt; 分布式系统中的双花问题&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;对于分布式系统来说，交易记录会广播给网络中所有节点（例如 A 花费 10 元购买了 B 后，A 会在网络广播交易信息，从而网络中的每个节点都会知道 “A 已经花费 10 元来购买 B”）。&lt;/p&gt;
-&lt;p&gt;每个节点都会记录这个交易信息，然后将信息传输给网络中的下个节点，并且这个过程会持续直到网络中的所有节点已经记录了这条信息&lt;span class=&#34;red&#34;&gt; “A 已经使用了 10 元来购买 B”&lt;/span&gt;。&lt;/p&gt;
-&lt;p&gt;但是，在信息通过庞大网络进行传输的时候，以下问题也会出现：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;ins&gt;当信息在网络中传播的时候，路径不同，并且在不同时间到达不同节点。&lt;/ins&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;ins&gt;由于节点会失效，有些节点也许不能将信息传递给下个节点，然后这个消息就会丢失。&lt;/ins&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;因此，在某个时间会发生这种情况，某些节点知道 A 已经花费了 10 元购买 B，但是某些节点却不知道这一消息。&lt;/p&gt;
-&lt;p&gt;对于那些不知道 A 花费 10 元购买 B 的节点来说，这条信息还没有传达给他们；他们仍然会认为，A 还有闲置的 10 元可以购买任何其他东西。&lt;/p&gt;
-&lt;p&gt;因此，对于 A 来说，很可能她会向网络中传播另一个消息&lt;span class=&#34;red&#34;&gt; “A 已经花费了 10 元来购买 C”&lt;/span&gt;，并且如果这个信息在&lt;span class=&#34;red&#34;&gt; “A 花费了 10 元来购买 B”&lt;/span&gt; 这个消息之前达到节点，那么这个节点就会认为 A 已经花了 10 元来买 C。&lt;/p&gt;
-&lt;p&gt;这就有可能造成这种情况，&lt;span class=&#34;red&#34;&gt;Alice 能够花费 10 元买 B，并且花费同样的 10 元来买 C&lt;/span&gt;；这是违背常理的，因为 A 只有 10 元，并不是 20 元。这就是&lt;em&gt;&lt;strong&gt;双花问题&lt;/strong&gt;&lt;/em&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;解决办法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#解决办法&#34;&gt;#&lt;/a&gt; 解决办法&lt;/h2&gt;
-&lt;p&gt;&lt;mark&gt;这笔钱是固定的，如何保证这笔钱在交易过程中，只支付了一次呢？&lt;/mark&gt;&lt;/p&gt;
-&lt;p&gt;比特币的创始人中本聪在《比特币白皮书》中写道，比特币的支付步骤是这样说的:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;1. 有一个新的交易，要向全网公布广播。&lt;/p&gt;
-&lt;p&gt;2. 每一个节点，都要将收集到的交易信息，放入一个区块中。&lt;/p&gt;
-&lt;p&gt;3. 每一个节点都要试着在自己的区块中，找到一个足够难的工作量证明。&lt;/p&gt;
-&lt;p&gt;4. 当一个节点找到了自己的工作量证明，都要对全网进行公布广播。&lt;/p&gt;
-&lt;p&gt;5. 当且仅当这个区块中的所有交易是有效且之前从未有过，其他的节点才承认这个交易过程的有效性。&lt;/p&gt;
-&lt;p&gt;6. 其他节点表示承认这个区块，表示认可的方法就是，根据这个区块的编码，往后延长这个链接。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这样说来，在交易发生的时刻，比特币的交易数据就被盖上了一个时间戳；而在这笔交易数据被打包到区块中这个过程中，就完成了第一次确认，在连续地进行了六次确认之后，这个记录就不能被轻易篡改了。&lt;/p&gt;
-&lt;p&gt;在这种情况下，当我尝试进行两次支付交易时，由于确认时间较长，后一交易几乎不可能与前一次交易同时确认。在第一次交易确认后，资金在第二次交易中无法确认。区块链的全网记账需要在整个网络中达成共识，就无法产生双花问题。&lt;br&gt;
-&lt;mark&gt;这样，也引出了防止双花攻击的两个重点&lt;/mark&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;h3 id=&#34;一-时间戳机制&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-时间戳机制&#34;&gt;#&lt;/a&gt; &lt;ins&gt;一、时间戳机制：&lt;/ins&gt;&lt;/h3&gt;
-&lt;p&gt;区块有明确的时间顺序，交易信息广播后，先被打进区块中的交易，就被认为是合法的，之后的交易就会被网络拒绝。&lt;/p&gt;
-&lt;p&gt;一个交易并不是在被矿工写到一个区块上时就生效了，而是要等这条链真正的成为了链上的最长链之后，才认为交易真正不可逆。这也就是为什么每次转账后，都建议等待六次确认，交易所在区块之后每新增一个区块，就是一次确认，等待六次确认之后，大部分矿工都承认这条链是最长链，交易将不可逆转。&lt;/p&gt;
-&lt;h3 id=&#34;二-最长链原则&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二-最长链原则&#34;&gt;#&lt;/a&gt; &lt;ins&gt;二、最长链原则：&lt;/ins&gt;&lt;/h3&gt;
-&lt;p&gt;比特币的 POW 共识机制里，矿工通过记账获得挖矿奖励，以最长链为原则，只有在最长链上挖矿的矿工才可以获得奖励。&lt;/p&gt;
-&lt;p&gt;由于随机数和网络延迟等原因，可能会出现两个矿工同一时间挖出区块，如果他们一起参与记账，就会造成区块链分叉。&lt;/p&gt;
-&lt;p&gt;系统会根据最长链进行取舍，哪条链上新产生的区块可以使得区块链变得更长，哪条便是最长链（主链），而短链则被所有矿工淘汰，矿工通过记账来换取挖矿奖励，即使部分节点矿工作恶修改账本，其节点也不会承认，从而避免双花。可以说 “最长链原则” 保障链比特币网络的安全和稳定共识。&lt;/p&gt;
-&lt;/blockquote&gt;
-</content>
-        <category term="学习笔记" />
-        <updated>2022-11-26T16:00:00.000Z</updated>
-    </entry>
-    <entry>
         <id>http://ctianming.github.io/project/2022/11/16/hello-world/</id>
         <title>Hello World</title>
         <link rel="alternate" href="http://ctianming.github.io/project/2022/11/16/hello-world/"/>
         <content type="html">&lt;p&gt;Welcome to &lt;a href=&#34;https://hexo.io/&#34;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&#34;https://hexo.io/docs/&#34;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&#34;https://hexo.io/docs/troubleshooting.html&#34;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&#34;https://github.com/hexojs/hexo/issues&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
 &lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo new &lt;span class=&#34;token string&#34;&gt;&#34;My New Post&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/writing.html&#34;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo new &lt;span class=&#34;string&#34;&gt;&amp;quot;My New Post&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/writing.html&#34;&gt;Writing&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;run-server&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#run-server&#34;&gt;#&lt;/a&gt; Run server&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo server&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/server.html&#34;&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/server.html&#34;&gt;Server&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;generate-static-files&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#generate-static-files&#34;&gt;#&lt;/a&gt; Generate static files&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo generate&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/generating.html&#34;&gt;Generating&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/generating.html&#34;&gt;Generating&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;deploy-to-remote-sites&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#deploy-to-remote-sites&#34;&gt;#&lt;/a&gt; Deploy to remote sites&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo deploy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/one-command-deployment.html&#34;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/one-command-deployment.html&#34;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
 </content>
         <updated>2022-11-16T13:21:50.897Z</updated>
     </entry>
