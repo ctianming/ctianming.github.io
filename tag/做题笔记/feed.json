@@ -5,6 +5,16 @@
     "home_page_url": "http://ctianming.github.io",
     "items": [
         {
+            "id": "http://ctianming.github.io/2023/03/22/CaptureTheEtherDo/",
+            "url": "http://ctianming.github.io/2023/03/22/CaptureTheEtherDo/",
+            "title": "CaptureTheEtherDo",
+            "date_published": "2023-03-22T09:25:22.000Z",
+            "content_html": "<h1 id=\"capturetheether做题笔记\"><a class=\"markdownIt-Anchor\" href=\"#capturetheether做题笔记\">#</a> CaptureTheEther 做题笔记</h1>\n<h2 id=\"guess-the-secret-number\"><a class=\"markdownIt-Anchor\" href=\"#guess-the-secret-number\">#</a> Guess the secret number</h2>\n<p>题目：<br>\n<img src=\"https://s2.loli.net/2023/03/22/HeUNs8P2kocrvQF.png\" alt=\"Guess the secret number\"></p>\n<p>这个题暴力破解即可，代码如下：</p>\n<p><img src=\"https://s2.loli.net/2023/03/22/QAia5EgMDVXNOcf.png\" alt=\"MyCode\"></p>\n<p>因为这个靶场所需要使用的测试网已经废弃，所以只得在 remix 复制部署。</p>\n<p>同时题目要求题目合约和攻击合约都需要持有 1 ether，可以在攻击合约中写一个 payable 的 constructor，或者通过另外的转账合约来进行转账。这里我直接写了一个转账合约。</p>\n<p><img src=\"https://s2.loli.net/2023/03/22/F2DPpoZe3sghXIw.png\" alt=\"Transfer\"></p>\n<p>奇怪的是攻击并没有通过，所以我搜了一下题解，他给出的攻击代码如下：</p>\n<p><img src=\"https://s2.loli.net/2023/03/22/IVWGM8UFwxhoHlu.png\" alt=\"Other'sCode\"></p>\n<p>原理是一样的，甚至某种程度上感觉还不如我的代码，所以没道理不通过，可能这个靶场实在太老了。。。</p>\n<h2 id=\"guesstherandomnumber\"><a class=\"markdownIt-Anchor\" href=\"#guesstherandomnumber\">#</a> GuessTheRandomNumber</h2>\n<p>题目：<br>\n<img src=\"https://s2.loli.net/2023/03/22/hQT18xWLBUjXr9E.png\" alt=\"GuessTheRandomNumber\"></p>\n<p>该题可以直接用 web3 获得 answer 的内容，answer 存储在第 0 个槽位，在链上部署后直接运行</p>\n<blockquote>\n<p>web3.eth.getStorageAt(contract.address,0)</p>\n</blockquote>\n<p>即可</p>\n<p>（由于 1 ether 实在太贵，我在 remix 中将题目合约的单位改成了 wei ）</p>\n<p><img src=\"https://s2.loli.net/2023/03/22/8qjmQRsEVrGha3J.png\" alt=\"getAnswer\"></p>\n<p>运行后得到 <em>“0x0000000000000000000000000000000000000000000000000000000000000017”</em></p>\n<p>对应十进制的 23，直接填入 guess 函数并执行即可</p>\n<h2 id=\"guessthenewnumber\"><a class=\"markdownIt-Anchor\" href=\"#guessthenewnumber\">#</a> GuessTheNewNumber</h2>\n<p>题目：</p>\n<p><img src=\"https://s2.loli.net/2023/03/22/Kk5bMsFpGLoutzv.png\" alt=\"GuessTheNewNumber\"></p>\n<blockquote>\n<p>因为区块的生成有一定的时间间隔，所以我们可以另写一个攻击合约，将 geuss 函数的前两句直接复现一遍<br>\n（我们可以赌它们就在同一区块中，除非运气特别不好，否则是可行的，后面的 now 并非是当时的时间，而是这个区块的时间戳），再直接利用计算出来的 answer 调用函数即可</p>\n</blockquote>\n<p>攻击合约:</p>\n<p><img src=\"https://s2.loli.net/2023/03/22/qF2t6ShHjDvdUBM.png\" alt=\"MyCode\"></p>\n<p><em>（ 因为最开始我在本地测试，没有上链，所以一直报错 NotFound，为此还卡了好久，最后上链一次就跑通了。。。苦痛 ）</em></p>\n",
+            "tags": [
+                "做题笔记"
+            ]
+        },
+        {
             "id": "http://ctianming.github.io/2023/03/08/EthernautDo/",
             "url": "http://ctianming.github.io/2023/03/08/EthernautDo/",
             "title": "EthernautDo",
