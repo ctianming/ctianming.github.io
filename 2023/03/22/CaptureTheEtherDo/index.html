@@ -17,12 +17,12 @@
   
     <meta name="keywords" content="做题笔记" />
   
-  <meta name="description" content="# CaptureTheEther 做题笔记 # Guess the secret number 题目：  这个题暴力破解即可，代码如下：  因为这个靶场所需要使用的测试网已经废弃，所以只得在 remix 复制部署。 同时题目要求题目合约和攻击合约都需要持有 1 ether，可以在攻击合约中写一个 payable 的 constructor，或者通过另外的转账合约来进行转账。这里我直接写了一个转账">
+  <meta name="description" content="# CaptureTheEther 做题笔记  # Guess the secret number 题目：  这个题暴力破解即可，代码如下：  因为这个靶场所需要使用的测试网已经废弃，所以只得在 remix 复制部署。 同时题目要求题目合约和攻击合约都需要持有 1 ether，可以在攻击合约中写一个 payable 的 constructor，或者通过另外的转账合约来进行转账。这里我直接写了一个转">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CaptureTheEtherDo">
 <meta property="og:url" content="http://ctianming.github.io/2023/03/22/CaptureTheEtherDo/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="# CaptureTheEther 做题笔记 # Guess the secret number 题目：  这个题暴力破解即可，代码如下：  因为这个靶场所需要使用的测试网已经废弃，所以只得在 remix 复制部署。 同时题目要求题目合约和攻击合约都需要持有 1 ether，可以在攻击合约中写一个 payable 的 constructor，或者通过另外的转账合约来进行转账。这里我直接写了一个转账">
+<meta property="og:description" content="# CaptureTheEther 做题笔记  # Guess the secret number 题目：  这个题暴力破解即可，代码如下：  因为这个靶场所需要使用的测试网已经废弃，所以只得在 remix 复制部署。 同时题目要求题目合约和攻击合约都需要持有 1 ether，可以在攻击合约中写一个 payable 的 constructor，或者通过另外的转账合约来进行转账。这里我直接写了一个转">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s2.loli.net/2023/03/22/HeUNs8P2kocrvQF.png">
 <meta property="og:image" content="https://s2.loli.net/2023/03/22/QAia5EgMDVXNOcf.png">
@@ -32,8 +32,12 @@
 <meta property="og:image" content="https://s2.loli.net/2023/03/22/8qjmQRsEVrGha3J.png">
 <meta property="og:image" content="https://s2.loli.net/2023/03/22/Kk5bMsFpGLoutzv.png">
 <meta property="og:image" content="https://s2.loli.net/2023/03/22/qF2t6ShHjDvdUBM.png">
+<meta property="og:image" content="https://s2.loli.net/2023/03/23/ln9RyZ7fEvtogbH.png">
+<meta property="og:image" content="https://s2.loli.net/2023/03/23/rvOW7fA9XI1cDuE.png">
+<meta property="og:image" content="https://s2.loli.net/2023/03/23/STGHb73pNnK1jl5.png">
+<meta property="og:image" content="https://s2.loli.net/2023/03/23/Dw4yT83qa5QG1xr.png">
 <meta property="article:published_time" content="2023-03-22T09:25:22.000Z">
-<meta property="article:modified_time" content="2023-03-22T15:52:04.626Z">
+<meta property="article:modified_time" content="2023-03-23T16:34:10.118Z">
 <meta property="article:author" content="ClearSky">
 <meta property="article:tag" content="做题笔记">
 <meta name="twitter:card" content="summary">
@@ -148,7 +152,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            802
+                            1416
                         
                         字
                     </li>
@@ -160,13 +164,14 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1679500324626"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1679589250118"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
             <hr />
             <div itemprop="articleBody"><h1 id="capturetheether做题笔记"><a class="markdownIt-Anchor" href="#capturetheether做题笔记">#</a> CaptureTheEther 做题笔记</h1>
+<hr>
 <h2 id="guess-the-secret-number"><a class="markdownIt-Anchor" href="#guess-the-secret-number">#</a> Guess the secret number</h2>
 <p>题目：<br>
 <img src="https://s2.loli.net/2023/03/22/HeUNs8P2kocrvQF.png" alt="Guess the secret number"></p>
@@ -200,6 +205,22 @@
 <p>攻击合约:</p>
 <p><img src="https://s2.loli.net/2023/03/22/qF2t6ShHjDvdUBM.png" alt="MyCode"></p>
 <p><em>（ 因为最开始我在本地测试，没有上链，所以一直报错 NotFound，为此还卡了好久，最后上链一次就跑通了。。。苦痛 ）</em></p>
+<h2 id="predictthefuture"><a class="markdownIt-Anchor" href="#predictthefuture">#</a> PredictTheFuture</h2>
+<p>题目：</p>
+<p><img src="https://s2.loli.net/2023/03/23/ln9RyZ7fEvtogbH.png" alt="PredictTheFuture"></p>
+<blockquote>
+<p>这个题呀十分的苦痛，来，分析一下：主要的函数就是 lockInGuess 和 settle ，其中 lockInGuess 是执行 settle 的先决条件，那么就变成了先得到 n 的值然后才得到 answer 的值的局面。</p>
+<p>痛苦之处就在于此，由于 lockInGuess 中的设置的 settlementBlockNumber 的值为 block.number + 1 ，而 settle 中 require 检查 block.number &gt; settlementBlockNumber ，一个新区块产生的时间约为 10 秒，那么按道理我们就需要等候一段时间才能够执行 settle 。虽然 answer 的值经过的求余运算，但是我们需要执行轰炸式的不间断攻击，直到 block.number 经过计算后的值（也就是 answer）等于 n，这也太苦痛了。（实际上网上的题解也正是用的这个笨办法，我作了一定改进）</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/03/23/rvOW7fA9XI1cDuE.png" alt="MyCode(1)"><br>
+<img src="https://s2.loli.net/2023/03/23/STGHb73pNnK1jl5.png" alt="MyCode(2"></p>
+<p>（注释掉的代码是开始的尝试）</p>
+<blockquote>
+<p>随便取 n 的值为一个位数，首先 set 执行，然后执行 attack，在失败几次过后攻击成功。<br>
+（一开始我没有设置 while 和 now - lastT &gt; 10 seconds 的条件，但是在机械点击了几十次点以后我终于决定修改代码）</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/03/23/Dw4yT83qa5QG1xr.png" alt="excution"></p>
+<p>在修改过后仅执行四次便获得成功（可喜可贺）(//OvO//)</p>
 </div>
         </div>
         
@@ -268,13 +289,14 @@
             const hostUrl       = "http://ctianming.github.io/2023/03/22/CaptureTheEtherDo/";
             const title         = "「CaptureTheEtherDo」";
             const excerpt       = `# CaptureTheEther 做题笔记
+
 # Guess the secret number
 题目：
 
 这个题暴力破解即可，代码如下：
 
 因为这个靶场所需要使用的测试网已经废弃，所以只得在 remix 复制部署。
-同时题目要求题目...`;
+同时题目要求题...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -296,7 +318,7 @@
                     <a class="tag-none-link" href="/tags/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/" rel="tag">做题笔记</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2023-03-22T15:52:04.626Z" itemprop="dateModified">最后编辑：2023-03-22</time>
+                    <time datetime="2023-03-23T16:34:10.118Z" itemprop="dateModified">最后编辑：2023-03-24</time>
                 </div>
             </div>
         </footer>
