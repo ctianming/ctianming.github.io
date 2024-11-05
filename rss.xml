@@ -5,10 +5,56 @@
         <link>http://ctianming.github.io</link>
         <description></description>
         <language>en</language>
-        <pubDate>Tue, 21 May 2024 00:33:56 +0800</pubDate>
-        <lastBuildDate>Tue, 21 May 2024 00:33:56 +0800</lastBuildDate>
+        <pubDate>Wed, 06 Nov 2024 02:21:58 +0800</pubDate>
+        <lastBuildDate>Wed, 06 Nov 2024 02:21:58 +0800</lastBuildDate>
         <category>做题笔记</category>
         <category>学习笔记</category>
+        <item>
+            <guid isPermalink="true">http://ctianming.github.io/2024/11/06/sui-move%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
+            <title></title>
+            <link>http://ctianming.github.io/2024/11/06/sui-move%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
+            <pubDate>Wed, 06 Nov 2024 02:21:58 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;sui-move基础一环境搭建&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sui-move基础一环境搭建&#34;&gt;#&lt;/a&gt; sui-move 基础（一）：环境搭建&lt;/h1&gt;
+&lt;p&gt;这里仅以 ubuntu 系统为例，我的环境是 wsl2：&lt;/p&gt;
+&lt;h3 id=&#34;wsl2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wsl2&#34;&gt;#&lt;/a&gt; wsl2&lt;/h3&gt;
+&lt;p&gt;System:&lt;br&gt;
+Host: universe Kernel: 5.15.153.1-microsoft-standard-WSL2 x86_64 bits: 64&lt;br&gt;
+Desktop: N/A Distro: Ubuntu 22.04.4 LTS (Jammy Jellyfish)&lt;/p&gt;
+&lt;p&gt;个人比较推荐 wls2 下进行编程，毕竟已经遭受过 windows 安装的环境过多而导致 C 盘爆炸这样的惨痛经历（TAT）。如何安装 wsl2，网上已经有了足够多的教程，大家可以各作参考。&lt;/p&gt;
+&lt;p&gt;这里给几个我曾遇见的问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;确保自己的 windows 许可证起码是专业版，网上有许多野生的 windows 许可证，实在找不到的话可以淘宝买一个，但别买贵了，最多最多五块钱&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果遇到了安装 wsl2 时系统发生回滚的问题，可能是 hyper-v 无法开启，保存以下代码为  &lt;code&gt;hyper-v.cmd&lt;/code&gt;  并运行：&lt;/p&gt;
+&lt;figure class=&#34;highlight cmd&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;pushd&lt;/span&gt; &amp;quot;%~dp0&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;dir&lt;/span&gt; /b &lt;span class=&#34;variable&#34;&gt;%SystemRoot%&lt;/span&gt;\servicing\Packages\*Hyper-V*.mum &amp;gt;hyper-v.txt&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; /f &lt;span class=&#34;variable&#34;&gt;%%i&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; (&amp;#x27;&lt;span class=&#34;built_in&#34;&gt;findstr&lt;/span&gt; /i . hyper-v.txt &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;^&amp;gt;&lt;span class=&#34;built_in&#34;&gt;nul&lt;/span&gt;&amp;#x27;) &lt;span class=&#34;keyword&#34;&gt;do&lt;/span&gt; dism /online /norestart /add-package:&amp;quot;&lt;span class=&#34;variable&#34;&gt;%SystemRoot%&lt;/span&gt;\servicing\Packages\&lt;span class=&#34;variable&#34;&gt;%%i&lt;/span&gt;&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;del&lt;/span&gt; hyper-v.txt&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;另外，千万记得保存 wsl2 虚拟机示例到 D 盘，否则就防止 C 盘压力继续增大的目的来说算是白装了。。。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;sui安装&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sui安装&#34;&gt;#&lt;/a&gt; sui 安装&lt;/h3&gt;
+&lt;p&gt;我以官方文档为例，官方文档使用了  &lt;code&gt;Homebrew&lt;/code&gt;  来进行 sui 环境的安装，运行以安装 Homebrew（需要科学上网）：&lt;/p&gt;
+&lt;figure class=&#34;highlight cmd&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;/bin/bash -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果遇到缓存空间不足的问题，例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;error: RPC failed; curl 92 HTTP/2 stream 0 was not closed cleanly: CANCEL (err 8)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;error: 2912 bytes of body are still expected&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fetch-pack: unexpected disconnect &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; reading sideband packet&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fatal: early EOF&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fatal: fetch-pack: invalid index-pack output&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Failed during: /usr/bin/git fetch --quiet --progress --force origin&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在  &lt;code&gt;https://github.com/Homebrew/brew/releases/latest&lt;/code&gt;  中找到 tar.gz，复制链接，例如： &lt;code&gt;https://github.com/Homebrew/brew/archive/refs/tags/4.4.4.tar.gz&lt;/code&gt;  运行：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;curl -L https://github.com/Homebrew/brew/archive/refs/tags/4.4.4.tar.gz -o brew-4.4.4.tar.gz //下载&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tar -xzvf brew-4.4.4.tar.gz //解压&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;mkdir&lt;/span&gt; -p /home/amyseer/.linuxbrew &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;mv&lt;/span&gt; brew-4.4.4/* /home/amyseer/.linuxbrew/&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;eval &amp;quot;$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)&amp;quot;&amp;#x27;&lt;/span&gt; &amp;gt;&amp;gt; ~/.profile&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;source&lt;/span&gt; ~/.profile&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;随后验证安装：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;brew&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;确认 Homebrew 安装完成后进行 sui 环境的安装：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;brew install sui&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;随后验证安装：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sui&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;对于从二进制安装 sui，则与上面安装 Homebrew 的步骤差不多，区别只是你需要寻找的是 sui 的发行版。更多安装方法可参考：&lt;a href=&#34;https://docs.sui.io/guides/developer/getting-started/sui-install&#34;&gt;https://docs.sui.io/guides/developer/getting-started/sui-install&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;从 cargo 安装要求有 rust 和 cargo 环境，可以直接参考 rust 官方文档 https://www.rust-lang.org/zh-CN/tools/install。&lt;/p&gt;
+&lt;h3 id=&#34;连接到-sui-网络&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#连接到-sui-网络&#34;&gt;#&lt;/a&gt; 连接到 sui 网络&lt;/h3&gt;
+&lt;p&gt;没什么可多说的，建议直接参考：&lt;/p&gt;
+&lt;p&gt;sui 测试网络：&lt;a href=&#34;https://docs.sui.io/guides/developer/getting-started/connect&#34;&gt;https://docs.sui.io/guides/developer/getting-started/connect&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;sui 本地网络：&lt;a href=&#34;https://docs.sui.io/guides/developer/getting-started/local-network&#34;&gt;https://docs.sui.io/guides/developer/getting-started/local-network&lt;/a&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://ctianming.github.io/2024/05/21/Windows%E5%AE%89%E8%A3%85wsl2%E6%9C%80%E5%85%A8%EF%BC%88%E5%A4%A7%E6%A6%82%EF%BC%89%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/</guid>
             <title>Windows安装wsl2最全（大概）踩坑指南</title>
