@@ -10,11 +10,24 @@
         <category>做题笔记</category>
         <category>学习笔记</category>
         <item>
+            <guid isPermalink="true">https://github.com/ctianming/ctianming.github.io.git/2024/11/06/Rust%20%E7%AC%94%E8%AE%B0%20%EF%BC%88rustlings%E6%9C%80%E5%90%8E%E5%8D%81%E9%A2%98%EF%BC%89/</guid>
+            <title></title>
+            <link>https://github.com/ctianming/ctianming.github.io.git/2024/11/06/Rust%20%E7%AC%94%E8%AE%B0%20%EF%BC%88rustlings%E6%9C%80%E5%90%8E%E5%8D%81%E9%A2%98%EF%BC%89/</link>
+            <pubDate>Wed, 06 Nov 2024 02:21:58 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&#34;rust-笔记-rustlings最后十题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#rust-笔记-rustlings最后十题&#34;&gt;#&lt;/a&gt; Rust 笔记 （ &lt;code&gt;rustlings&lt;/code&gt;  最后十题）&lt;/h1&gt;
+&lt;h5 id=&#34;前言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h5&gt;
+&lt;p&gt;这是参与 [2024 春夏季开源操作系统训练营][&lt;a href=&#34;https://opencamp.cn/os2edu/camp/2024spring/&#34;&gt;https://opencamp.cn/os2edu/camp/2024spring/&lt;/a&gt;] 第一阶段  &lt;code&gt;Rust&lt;/code&gt;  学习的笔记，因为之前也有接触过 &lt;code&gt;Rust&lt;/code&gt; ，所以 [rustlings][&lt;a href=&#34;https://github.com/LearningOS/rust-rustlings-2024-spring-ctianming&#34;&gt;https://github.com/LearningOS/rust-rustlings-2024-spring-ctianming&lt;/a&gt;] 前面 100 题先不作笔记或总结，或者之后再系统性地进行总结（但网络上的资源亦足够丰富，这里贴一个速查表 [&lt;em&gt;Rust Language Cheat Sheet&lt;/em&gt;][[(&lt;a href=&#34;https://cheats.rs/&#34;&gt;https://cheats.rs/&lt;/a&gt;)] ）&lt;/p&gt;
+&lt;h2 id=&#34;algorithm1-合并链表&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#algorithm1-合并链表&#34;&gt;#&lt;/a&gt; algorithm1 (合并链表)&lt;/h2&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">https://github.com/ctianming/ctianming.github.io.git/2024/11/06/sui-move%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
             <title></title>
             <link>https://github.com/ctianming/ctianming.github.io.git/2024/11/06/sui-move%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
             <pubDate>Wed, 06 Nov 2024 02:21:58 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;sui-move基础一环境搭建&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sui-move基础一环境搭建&#34;&gt;#&lt;/a&gt; sui-move 基础（一）：环境搭建&lt;/h1&gt;
+            <description><![CDATA[ &lt;p&gt;title: sui-move 基础（一）：环境搭建&lt;/p&gt;
+&lt;h1 id=&#34;sui-move基础一环境搭建&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sui-move基础一环境搭建&#34;&gt;#&lt;/a&gt; sui-move 基础（一）：环境搭建&lt;/h1&gt;
 &lt;p&gt;这里仅以 ubuntu 系统为例，我的环境是 wsl2：&lt;/p&gt;
 &lt;h3 id=&#34;wsl2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wsl2&#34;&gt;#&lt;/a&gt; wsl2&lt;/h3&gt;
 &lt;p&gt;System:&lt;br&gt;
@@ -68,6 +81,27 @@ Desktop: N/A Distro: Ubuntu 22.04.4 LTS (Jammy Jellyfish)&lt;/p&gt;
 &lt;p&gt;在这里申明，建议安装 rust 环境，直接参考 rust 官方文档即可。&lt;/p&gt;
 &lt;p&gt;根据个人爱好和使用感受，vscode + rust-analyzer 对 rust 的支持相当不错，这也是官方推荐的编辑器。&lt;/p&gt;
 &lt;p&gt;而 move 在 vscode 同样有相应的插件，只需安装 VS Code  &lt;code&gt;Move&lt;/code&gt;  插件 &lt;a href=&#34;https://learnblockchain.cn/article/8210&#34;&gt;教程&lt;/a&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://github.com/ctianming/ctianming.github.io.git/2024/11/06/hello-world/</guid>
+            <title>Hello World</title>
+            <link>https://github.com/ctianming/ctianming.github.io.git/2024/11/06/hello-world/</link>
+            <pubDate>Wed, 06 Nov 2024 02:21:58 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;Welcome to &lt;a href=&#34;https://hexo.io/&#34;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&#34;https://hexo.io/docs/&#34;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&#34;https://hexo.io/docs/troubleshooting.html&#34;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&#34;https://github.com/hexojs/hexo/issues&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
+&lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo new &lt;span class=&#34;string&#34;&gt;&amp;quot;My New Post&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/writing.html&#34;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;run-server&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#run-server&#34;&gt;#&lt;/a&gt; Run server&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/server.html&#34;&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;generate-static-files&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#generate-static-files&#34;&gt;#&lt;/a&gt; Generate static files&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/generating.html&#34;&gt;Generating&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;deploy-to-remote-sites&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#deploy-to-remote-sites&#34;&gt;#&lt;/a&gt; Deploy to remote sites&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/one-command-deployment.html&#34;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -136,18 +170,6 @@ Desktop: N/A Distro: Ubuntu 22.04.4 LTS (Jammy Jellyfish)&lt;/p&gt;
 &lt;p&gt;到这里就安装完成啦，开始愉快地使用 wsl2 ，抛掉笨重的虚拟机吧！&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://github.com/ctianming/ctianming.github.io.git/2024/04/19/Rust%20%E7%AC%94%E8%AE%B0%20%EF%BC%88rustlings%E6%9C%80%E5%90%8E%E5%8D%81%E9%A2%98%EF%BC%89/</guid>
-            <title></title>
-            <link>https://github.com/ctianming/ctianming.github.io.git/2024/04/19/Rust%20%E7%AC%94%E8%AE%B0%20%EF%BC%88rustlings%E6%9C%80%E5%90%8E%E5%8D%81%E9%A2%98%EF%BC%89/</link>
-            <pubDate>Fri, 19 Apr 2024 01:02:19 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&#34;rust-笔记-rustlings最后十题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#rust-笔记-rustlings最后十题&#34;&gt;#&lt;/a&gt; Rust 笔记 （ &lt;code&gt;rustlings&lt;/code&gt;  最后十题）&lt;/h1&gt;
-&lt;h5 id=&#34;前言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h5&gt;
-&lt;p&gt;这是参与 [2024 春夏季开源操作系统训练营][&lt;a href=&#34;https://opencamp.cn/os2edu/camp/2024spring/&#34;&gt;https://opencamp.cn/os2edu/camp/2024spring/&lt;/a&gt;] 第一阶段  &lt;code&gt;Rust&lt;/code&gt;  学习的笔记，因为之前也有接触过 &lt;code&gt;Rust&lt;/code&gt; ，所以 [rustlings][&lt;a href=&#34;https://github.com/LearningOS/rust-rustlings-2024-spring-ctianming&#34;&gt;https://github.com/LearningOS/rust-rustlings-2024-spring-ctianming&lt;/a&gt;] 前面 100 题先不作笔记或总结，或者之后再系统性地进行总结（但网络上的资源亦足够丰富，这里贴一个速查表 [&lt;em&gt;Rust Language Cheat Sheet&lt;/em&gt;][[(&lt;a href=&#34;https://cheats.rs/&#34;&gt;https://cheats.rs/&lt;/a&gt;)] ）&lt;/p&gt;
-&lt;h2 id=&#34;algorithm1-合并链表&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#algorithm1-合并链表&#34;&gt;#&lt;/a&gt; algorithm1 (合并链表)&lt;/h2&gt;
  ]]></description>
         </item>
         <item>
@@ -666,27 +688,6 @@ await web3.eth.sendTransecrion ((from:player,to:&amp;quot;// 实例地址&amp;qu
 旧的 UTXO 被消耗，新的 UTXO 开始生效，此时丁的钱包里有一个未使用的 UTXO (3): 丙给丁 0.8BTC，丙的钱包里有一个未使用的 UTXO (4): 丙给丙 0.3999BTC。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;mark&gt;&lt;em&gt;从这个抽象的交易过程，我们可以发现，比特币的交易实质上是一堆 UTXO 的输入和输出的过程，伴随旧的 UTXO 被消耗，新的 UTXO 产生，完成了一次又一次的比特币交易。交易的过程由非对称加密和哈希算法进行双重保护，比特币持有者可以放心完成交易而不必担心身份被泄露，交易过程中也消耗了一部分比特币，用于奖励打包交易的矿工，使矿工乐于完成自己维护比特币网络的任务。&lt;/em&gt;&lt;/mark&gt;&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://github.com/ctianming/ctianming.github.io.git/2022/11/16/hello-world/</guid>
-            <title>Hello World</title>
-            <link>https://github.com/ctianming/ctianming.github.io.git/2022/11/16/hello-world/</link>
-            <pubDate>Wed, 16 Nov 2022 21:21:50 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;Welcome to &lt;a href=&#34;https://hexo.io/&#34;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&#34;https://hexo.io/docs/&#34;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&#34;https://hexo.io/docs/troubleshooting.html&#34;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&#34;https://github.com/hexojs/hexo/issues&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
-&lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo new &lt;span class=&#34;string&#34;&gt;&amp;quot;My New Post&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/writing.html&#34;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;run-server&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#run-server&#34;&gt;#&lt;/a&gt; Run server&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/server.html&#34;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;generate-static-files&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#generate-static-files&#34;&gt;#&lt;/a&gt; Generate static files&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/generating.html&#34;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;deploy-to-remote-sites&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#deploy-to-remote-sites&#34;&gt;#&lt;/a&gt; Deploy to remote sites&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/one-command-deployment.html&#34;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
