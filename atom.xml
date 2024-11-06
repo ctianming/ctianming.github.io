@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://ctianming.github.io</id>
+    <id>https://github.com/ctianming/ctianming.github.io.git</id>
     <title>♪Beautiful☆World♪</title>
-    <link href="http://ctianming.github.io" />
+    <link href="https://github.com/ctianming/ctianming.github.io.git" />
     <updated>2024-11-05T18:21:58.762Z</updated>
     <category term="做题笔记" />
     <category term="学习笔记" />
     <entry>
-        <id>http://ctianming.github.io/2024/11/06/sui-move%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</id>
+        <id>https://github.com/ctianming/ctianming.github.io.git/2024/11/06/sui-move%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</id>
         <title></title>
-        <link rel="alternate" href="http://ctianming.github.io/2024/11/06/sui-move%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+        <link rel="alternate" href="https://github.com/ctianming/ctianming.github.io.git/2024/11/06/sui-move%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
         <content type="html">&lt;h1 id=&#34;sui-move基础一环境搭建&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sui-move基础一环境搭建&#34;&gt;#&lt;/a&gt; sui-move 基础（一）：环境搭建&lt;/h1&gt;
 &lt;p&gt;这里仅以 ubuntu 系统为例，我的环境是 wsl2：&lt;/p&gt;
 &lt;h3 id=&#34;wsl2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wsl2&#34;&gt;#&lt;/a&gt; wsl2&lt;/h3&gt;
@@ -49,13 +49,28 @@ Desktop: N/A Distro: Ubuntu 22.04.4 LTS (Jammy Jellyfish)&lt;/p&gt;
 &lt;p&gt;没什么可多说的，建议直接参考：&lt;/p&gt;
 &lt;p&gt;sui 测试网络：&lt;a href=&#34;https://docs.sui.io/guides/developer/getting-started/connect&#34;&gt;https://docs.sui.io/guides/developer/getting-started/connect&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;sui 本地网络：&lt;a href=&#34;https://docs.sui.io/guides/developer/getting-started/local-network&#34;&gt;https://docs.sui.io/guides/developer/getting-started/local-network&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;获取-sui-tokens&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#获取-sui-tokens&#34;&gt;#&lt;/a&gt; 获取 sui Tokens&lt;/h3&gt;
+&lt;p&gt;之前你已经在连接 sui 测试网络时运行了：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sui client&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;运行完成后你获得了一个地址&lt;WALLET ADDRESS&gt;和 12 个助记词&lt;/p&gt;
+&lt;p&gt;现在只需：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;加入 Sui Discord: &lt;a href=&#34;https://discord.gg/sui&#34;&gt;https://discord.gg/sui&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;完成身份验证步骤&lt;/li&gt;
+&lt;li&gt;进入对应的 #devnet-faucet 或 #testnet-faucet 频道&lt;/li&gt;
+&lt;li&gt;输入！faucet &lt;WALLET ADDRESS&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;move开发环境&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#move开发环境&#34;&gt;#&lt;/a&gt; move 开发环境&lt;/h3&gt;
+&lt;p&gt;在这里申明，建议安装 rust 环境，直接参考 rust 官方文档即可。&lt;/p&gt;
+&lt;p&gt;根据个人爱好和使用感受，vscode + rust-analyzer 对 rust 的支持相当不错，这也是官方推荐的编辑器。&lt;/p&gt;
+&lt;p&gt;而 move 在 vscode 同样有相应的插件，只需安装 VS Code  &lt;code&gt;Move&lt;/code&gt;  插件 &lt;a href=&#34;https://learnblockchain.cn/article/8210&#34;&gt;教程&lt;/a&gt;&lt;/p&gt;
 </content>
         <updated>2024-11-05T18:21:58.762Z</updated>
     </entry>
     <entry>
-        <id>http://ctianming.github.io/2024/05/21/Windows%E5%AE%89%E8%A3%85wsl2%E6%9C%80%E5%85%A8%EF%BC%88%E5%A4%A7%E6%A6%82%EF%BC%89%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/</id>
+        <id>https://github.com/ctianming/ctianming.github.io.git/2024/05/21/Windows%E5%AE%89%E8%A3%85wsl2%E6%9C%80%E5%85%A8%EF%BC%88%E5%A4%A7%E6%A6%82%EF%BC%89%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/</id>
         <title>Windows安装wsl2最全（大概）踩坑指南</title>
-        <link rel="alternate" href="http://ctianming.github.io/2024/05/21/Windows%E5%AE%89%E8%A3%85wsl2%E6%9C%80%E5%85%A8%EF%BC%88%E5%A4%A7%E6%A6%82%EF%BC%89%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/"/>
+        <link rel="alternate" href="https://github.com/ctianming/ctianming.github.io.git/2024/05/21/Windows%E5%AE%89%E8%A3%85wsl2%E6%9C%80%E5%85%A8%EF%BC%88%E5%A4%A7%E6%A6%82%EF%BC%89%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/"/>
         <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h1 id=&#34;windows安装wsl2最全大概踩坑指南&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#windows安装wsl2最全大概踩坑指南&#34;&gt;#&lt;/a&gt; Windows 安装 wsl2 最全（大概）踩坑指南&lt;/h1&gt;
 &lt;p&gt;本篇文章全然是本人的经验之谈。我曾因为迫切需要使用 wsl2 却一次又一次地启动失败，哪怕尝试了一种又一种办法，最终却必然卡在重启阶段。&lt;/p&gt;
@@ -121,9 +136,9 @@ Desktop: N/A Distro: Ubuntu 22.04.4 LTS (Jammy Jellyfish)&lt;/p&gt;
         <updated>2024-05-20T16:33:56.000Z</updated>
     </entry>
     <entry>
-        <id>http://ctianming.github.io/2024/04/19/Rust%20%E7%AC%94%E8%AE%B0%20%EF%BC%88rustlings%E6%9C%80%E5%90%8E%E5%8D%81%E9%A2%98%EF%BC%89/</id>
+        <id>https://github.com/ctianming/ctianming.github.io.git/2024/04/19/Rust%20%E7%AC%94%E8%AE%B0%20%EF%BC%88rustlings%E6%9C%80%E5%90%8E%E5%8D%81%E9%A2%98%EF%BC%89/</id>
         <title></title>
-        <link rel="alternate" href="http://ctianming.github.io/2024/04/19/Rust%20%E7%AC%94%E8%AE%B0%20%EF%BC%88rustlings%E6%9C%80%E5%90%8E%E5%8D%81%E9%A2%98%EF%BC%89/"/>
+        <link rel="alternate" href="https://github.com/ctianming/ctianming.github.io.git/2024/04/19/Rust%20%E7%AC%94%E8%AE%B0%20%EF%BC%88rustlings%E6%9C%80%E5%90%8E%E5%8D%81%E9%A2%98%EF%BC%89/"/>
         <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h1 id=&#34;rust-笔记-rustlings最后十题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#rust-笔记-rustlings最后十题&#34;&gt;#&lt;/a&gt; Rust 笔记 （ &lt;code&gt;rustlings&lt;/code&gt;  最后十题）&lt;/h1&gt;
 &lt;h5 id=&#34;前言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h5&gt;
@@ -133,9 +148,9 @@ Desktop: N/A Distro: Ubuntu 22.04.4 LTS (Jammy Jellyfish)&lt;/p&gt;
         <updated>2024-04-18T17:02:19.488Z</updated>
     </entry>
     <entry>
-        <id>http://ctianming.github.io/2023/06/09/%E9%A2%98%E8%A7%A3%E6%9D%82%E5%AD%98/</id>
+        <id>https://github.com/ctianming/ctianming.github.io.git/2023/06/09/%E9%A2%98%E8%A7%A3%E6%9D%82%E5%AD%98/</id>
         <title>题解杂存</title>
-        <link rel="alternate" href="http://ctianming.github.io/2023/06/09/%E9%A2%98%E8%A7%A3%E6%9D%82%E5%AD%98/"/>
+        <link rel="alternate" href="https://github.com/ctianming/ctianming.github.io.git/2023/06/09/%E9%A2%98%E8%A7%A3%E6%9D%82%E5%AD%98/"/>
         <content type="html">&lt;h1 id=&#34;题解杂存&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#题解杂存&#34;&gt;#&lt;/a&gt; 题解杂存&lt;/h1&gt;
 &lt;h2 id=&#34;the-lost-kittysubspan-stylecolor66ccfffromctfprotocolspansub&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#the-lost-kittysubspan-stylecolor66ccfffromctfprotocolspansub&#34;&gt;#&lt;/a&gt; The Lost Kitty&lt;sub&gt;&lt;span style=&#34;color:#66ccff&#34;&gt;fromCTFProtocol&lt;/span&gt;&lt;/sub&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题目&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#题目&#34;&gt;#&lt;/a&gt; 题目：&lt;/h3&gt;
@@ -159,9 +174,9 @@ Desktop: N/A Distro: Ubuntu 22.04.4 LTS (Jammy Jellyfish)&lt;/p&gt;
         <updated>2023-06-08T16:00:22.000Z</updated>
     </entry>
     <entry>
-        <id>http://ctianming.github.io/2023/05/28/DVDEFIdo/</id>
+        <id>https://github.com/ctianming/ctianming.github.io.git/2023/05/28/DVDEFIdo/</id>
         <title>DVDEFIdo</title>
-        <link rel="alternate" href="http://ctianming.github.io/2023/05/28/DVDEFIdo/"/>
+        <link rel="alternate" href="https://github.com/ctianming/ctianming.github.io.git/2023/05/28/DVDEFIdo/"/>
         <content type="html">&lt;h1 id=&#34;damn-vulnearable-defi&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#damn-vulnearable-defi&#34;&gt;#&lt;/a&gt; damn -vulnearable-defi&lt;/h1&gt;
 &lt;h2 id=&#34;unstoppable&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#unstoppable&#34;&gt;#&lt;/a&gt; unstoppable&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -332,9 +347,9 @@ Desktop: N/A Distro: Ubuntu 22.04.4 LTS (Jammy Jellyfish)&lt;/p&gt;
         <updated>2023-05-28T13:51:17.000Z</updated>
     </entry>
     <entry>
-        <id>http://ctianming.github.io/2023/03/22/CaptureTheEtherDo/</id>
+        <id>https://github.com/ctianming/ctianming.github.io.git/2023/03/22/CaptureTheEtherDo/</id>
         <title>CaptureTheEtherDo</title>
-        <link rel="alternate" href="http://ctianming.github.io/2023/03/22/CaptureTheEtherDo/"/>
+        <link rel="alternate" href="https://github.com/ctianming/ctianming.github.io.git/2023/03/22/CaptureTheEtherDo/"/>
         <content type="html">&lt;h1 id=&#34;capturetheether做题笔记&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#capturetheether做题笔记&#34;&gt;#&lt;/a&gt; CaptureTheEther 做题笔记&lt;/h1&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;guess-the-secret-number&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#guess-the-secret-number&#34;&gt;#&lt;/a&gt; Guess the secret number&lt;/h2&gt;
@@ -391,9 +406,9 @@ Desktop: N/A Distro: Ubuntu 22.04.4 LTS (Jammy Jellyfish)&lt;/p&gt;
         <updated>2023-03-22T09:25:22.000Z</updated>
     </entry>
     <entry>
-        <id>http://ctianming.github.io/2023/03/08/EthernautDo/</id>
+        <id>https://github.com/ctianming/ctianming.github.io.git/2023/03/08/EthernautDo/</id>
         <title>EthernautDo</title>
-        <link rel="alternate" href="http://ctianming.github.io/2023/03/08/EthernautDo/"/>
+        <link rel="alternate" href="https://github.com/ctianming/ctianming.github.io.git/2023/03/08/EthernautDo/"/>
         <content type="html">&lt;h1 id=&#34;ethernaut部分题解&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ethernaut部分题解&#34;&gt;#&lt;/a&gt; Ethernaut 部分题解&lt;/h1&gt;
 &lt;h2 id=&#34;gatekeeperone有问题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#gatekeeperone有问题&#34;&gt;#&lt;/a&gt; &lt;em&gt;GateKeeperOne（有问题）&lt;/em&gt;&lt;/h2&gt;
 &lt;p&gt;题目：&lt;br&gt;
@@ -527,9 +542,9 @@ await web3.eth.sendTransecrion ((from:player,to:&amp;quot;// 实例地址&amp;qu
         <updated>2023-03-07T16:45:36.000Z</updated>
     </entry>
     <entry>
-        <id>http://ctianming.github.io/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/</id>
+        <id>https://github.com/ctianming/ctianming.github.io.git/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/</id>
         <title>比特币如何防止双花攻击</title>
-        <link rel="alternate" href="http://ctianming.github.io/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/"/>
+        <link rel="alternate" href="https://github.com/ctianming/ctianming.github.io.git/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E5%8F%8C%E8%8A%B1%E6%94%BB%E5%87%BB/"/>
         <content type="html">&lt;h1 id=&#34;比特币如何防止双花攻击&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#比特币如何防止双花攻击&#34;&gt;#&lt;/a&gt; 比特币如何防止双花攻击&lt;/h1&gt;
 &lt;h2 id=&#34;分布式系统中的双花问题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#分布式系统中的双花问题&#34;&gt;#&lt;/a&gt; 分布式系统中的双花问题&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -577,9 +592,9 @@ await web3.eth.sendTransecrion ((from:player,to:&amp;quot;// 实例地址&amp;qu
         <updated>2022-11-26T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://ctianming.github.io/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/</id>
+        <id>https://github.com/ctianming/ctianming.github.io.git/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/</id>
         <title>比特币的交易过程，结合UTXO和秘钥技术的说明</title>
-        <link rel="alternate" href="http://ctianming.github.io/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/"/>
+        <link rel="alternate" href="https://github.com/ctianming/ctianming.github.io.git/2022/11/27/%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E4%BA%A4%E6%98%93%E8%BF%87%E7%A8%8B%EF%BC%8C%E7%BB%93%E5%90%88UTXO%E5%92%8C%E7%A7%98%E9%92%A5%E6%8A%80%E6%9C%AF%E7%9A%84%E8%AF%B4%E6%98%8E/"/>
         <content type="html">&lt;h1 id=&#34;比特币的交易过程结合utxo和秘钥技术的说明&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#比特币的交易过程结合utxo和秘钥技术的说明&#34;&gt;#&lt;/a&gt; 比特币的交易过程，结合 UTXO 和秘钥技术的说明&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;mark&gt;首先我们尝试分开理解 UTXO 与秘钥技术&lt;/mark&gt;&lt;/li&gt;
@@ -651,9 +666,9 @@ await web3.eth.sendTransecrion ((from:player,to:&amp;quot;// 实例地址&amp;qu
         <updated>2022-11-26T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://ctianming.github.io/2022/11/16/hello-world/</id>
+        <id>https://github.com/ctianming/ctianming.github.io.git/2022/11/16/hello-world/</id>
         <title>Hello World</title>
-        <link rel="alternate" href="http://ctianming.github.io/2022/11/16/hello-world/"/>
+        <link rel="alternate" href="https://github.com/ctianming/ctianming.github.io.git/2022/11/16/hello-world/"/>
         <content type="html">&lt;p&gt;Welcome to &lt;a href=&#34;https://hexo.io/&#34;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&#34;https://hexo.io/docs/&#34;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&#34;https://hexo.io/docs/troubleshooting.html&#34;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&#34;https://github.com/hexojs/hexo/issues&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
 &lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
