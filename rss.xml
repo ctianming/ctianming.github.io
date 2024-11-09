@@ -5,10 +5,41 @@
         <link>https://github.com/ctianming/ctianming.github.io.git</link>
         <description></description>
         <language>en</language>
-        <pubDate>Wed, 06 Nov 2024 02:21:58 +0800</pubDate>
-        <lastBuildDate>Wed, 06 Nov 2024 02:21:58 +0800</lastBuildDate>
+        <pubDate>Sat, 09 Nov 2024 17:52:55 +0800</pubDate>
+        <lastBuildDate>Sat, 09 Nov 2024 17:52:55 +0800</lastBuildDate>
         <category>做题笔记</category>
         <category>学习笔记</category>
+        <item>
+            <guid isPermalink="true">https://github.com/ctianming/ctianming.github.io.git/2024/11/09/sui-move%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9Aletsmove-task1/</guid>
+            <title>sui-move基础（二）：letsmove-task1</title>
+            <link>https://github.com/ctianming/ctianming.github.io.git/2024/11/09/sui-move%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9Aletsmove-task1/</link>
+            <pubDate>Sat, 09 Nov 2024 17:52:55 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;sui-move基础二letsmove-task1&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sui-move基础二letsmove-task1&#34;&gt;#&lt;/a&gt; sui-move 基础（二）：letsmove-task1&lt;/h1&gt;
+&lt;p&gt;上一篇教程已经完成了 sui-move 环境的配置，从本节开始，将进行 sui-move 社区的 letsmove 系列 task 学习。&lt;/p&gt;
+&lt;p&gt;看到这里的你如果还不知道 letsmove，而想要学习 sui-move 的话，可以进一步了解：&lt;a href=&#34;https://github.com/move-cn/letsmove%E3%80%82&#34;&gt;https://github.com/move-cn/letsmove。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;完成 task 有相应的 sui 代币奖励。&lt;/p&gt;
+&lt;h3 id=&#34;fork并克隆仓库&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#fork并克隆仓库&#34;&gt;#&lt;/a&gt; fork 并克隆仓库&lt;/h3&gt;
+&lt;p&gt;鉴于本教程为初学者准备，这里首先介绍一下如何创建 ssh 秘钥：&lt;/p&gt;
+&lt;p&gt;​		&lt;strong&gt;创建 ssh key，用于 ssh 方式克隆 github 代码&lt;/strong&gt;。在 linux 环境下，使用 &lt;code&gt;ssh-keygen -t rsa -b 4096 -C &amp;quot;你的邮箱&amp;quot;&lt;/code&gt;  命令，创建 ssh key，下面的选项全部直接敲回车即可。 随后使用 &lt;code&gt; cat ~/.ssh/id_rsa.pub&lt;/code&gt;  命令查看生成的公钥，并完整的复制下来。 在 github 仓库界面点击自己的头像，选择 &lt;code&gt;settings&lt;/code&gt; 。进入到设置页面后，点击左侧的 &lt;code&gt;SSH and GPG keys&lt;/code&gt;  选项。点击 &lt;code&gt;New SSH key&lt;/code&gt;  选项，并将复制下来的内容粘贴上去，添加该 ssh key 的描述。随后点击 &lt;code&gt;Add SSH key&lt;/code&gt; ，并一路点击确认即可。&lt;/p&gt;
+&lt;p&gt;以上教程来自 opencamp (&lt;a href=&#34;https://opencamp.cn/&#34;&gt;https://opencamp.cn/&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;适用于 linux 系统。&lt;/p&gt;
+&lt;p&gt;fork 仓库：&lt;/p&gt;
+&lt;p&gt;进入 https://github.com/move-cn/letsmove 仓库，点击 fork，一路确认即可。&lt;/p&gt;
+&lt;p&gt;克隆仓库：&lt;/p&gt;
+&lt;p&gt;进入自己 fork 下来的仓库，点击绿色的  &lt;code&gt;code&lt;/code&gt;  按钮，选择 ssh, 复制下面框中的地址。&lt;/p&gt;
+&lt;p&gt;随后来到自己的本地环境，选择一个合适的路径，运行：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git &lt;span class=&#34;built_in&#34;&gt;clone&lt;/span&gt; git@github.com:你的github &lt;span class=&#34;built_in&#34;&gt;id&lt;/span&gt;/letsmove.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果出现网络问题，请更换节点或魔法开全局或退出魔法。&lt;/p&gt;
+&lt;h3 id=&#34;hello_move&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hello_move&#34;&gt;#&lt;/a&gt; hello_move&lt;/h3&gt;
+&lt;p&gt;现在进入刚刚克隆的 letsmove 目录，应该有如下内容：&lt;/p&gt;
+&lt;figure class=&#34;highlight powershell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;(base) amyseer@universe:~/sui/letsmove&lt;span class=&#34;variable&#34;&gt;$&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;ls&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;README.md  learning_map.md  mover  task  tutorial&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;进入 task 目录，&lt;strong&gt;&lt;a href=&#34;http://xn--readme-9v7ip8bl3ml91il8sahh0btj1a.md&#34;&gt;仔细阅读其中的 readme.md&lt;/a&gt;&lt;/strong&gt;，我这里不再过多赘述。&lt;/p&gt;
+&lt;p&gt;在重命名 001 目录后，进入该目录， &lt;code&gt;cd co-learn-2411&lt;/code&gt;  （这里可能有区别）， &lt;code&gt; cd project&lt;/code&gt;  ，在该路径下运行：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sui move new hello_move&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;到这里，建议直接阅读官方文档：&lt;a href=&#34;https://move.sui-book.com/your-first-move/hello-world.html&#34;&gt;https://move.sui-book.com/your-first-move/hello-world.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;截止到目前，建议起码读完直到  &lt;code&gt;你好 sui!&lt;/code&gt;  这一章，如果没有编程基础，可能会多花些时间。&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://github.com/ctianming/ctianming.github.io.git/2024/11/06/Rust%20%E7%AC%94%E8%AE%B0%20%EF%BC%88rustlings%E6%9C%80%E5%90%8E%E5%8D%81%E9%A2%98%EF%BC%89/</guid>
             <title></title>
