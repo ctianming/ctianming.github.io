@@ -11,6 +11,12 @@
         <title>sui-move基础（二）：letsmove-task1</title>
         <link rel="alternate" href="https://github.com/ctianming/ctianming.github.io.git/2024/11/09/sui-move%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9Aletsmove-task1/"/>
         <content type="html">&lt;h1 id=&#34;sui-move基础二letsmove-task1&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sui-move基础二letsmove-task1&#34;&gt;#&lt;/a&gt; sui-move 基础（二）：letsmove-task1&lt;/h1&gt;
+&lt;img src=&#34;2ef34b8fa6311daf0a5c08e41137fda.jpg&#34; alt=&#34;image-20241109180430695&#34; style=&#34;zoom: 25%;&#34; /&gt;
+&lt;div style=&#34;text-align: center;&#34;&gt;
+    &lt;span style=&#34;font-size: smaller;&#34;&gt;
+        这是sui姬
+    &lt;/span&gt;
+&lt;/div&gt;
 &lt;p&gt;上一篇教程已经完成了 sui-move 环境的配置，从本节开始，将进行 sui-move 社区的 letsmove 系列 task 学习。&lt;/p&gt;
 &lt;p&gt;看到这里的你如果还不知道 letsmove，而想要学习 sui-move 的话，可以进一步了解：&lt;a href=&#34;https://github.com/move-cn/letsmove%E3%80%82&#34;&gt;https://github.com/move-cn/letsmove。&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;完成 task 有相应的 sui 代币奖励。&lt;/p&gt;
